@@ -1,0 +1,36 @@
+{
+	"name": "www.labelnoir.me",
+	"version": "0.1.0",
+	"private": true,
+	"scripts": {
+		"dev": "next dev",
+		"build": "next build",
+		"start": "next start",
+		"lint": "next lint",
+		"prepare": "husky install",
+		"cypress:open": "cypress open",
+		"cypress:headless": "cypress run"
+	},
+	"dependencies": {
+		"@vercel/analytics": "^1.0.1",
+		"eslint": "8.39.0",
+		"eslint-config-next": "13.4.0",
+		"next": "13.4.0",
+		"react": "18.2.0",
+		"react-dom": "18.2.0"
+	},
+	"devDependencies": {
+		"@axe-core/react": "^4.7.0",
+		"axe-core": "^4.7.0",
+		"cypress": "^12.11.0",
+		"cypress-axe": "^1.4.0",
+		"eslint-config-prettier": "^8.8.0",
+		"eslint-plugin-cypress": "^2.13.3",
+		"husky": "^8.0.3",
+		"lint-staged": "^13.2.2",
+		"prettier": "2.8.8"
+	},
+	"lint-staged": {
+		"**/*": "prettier --write --ignore-unknown"
+	}
+}
