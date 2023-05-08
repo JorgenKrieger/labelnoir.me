@@ -1,9 +1,9 @@
 export default async function getProject(slug) {
-	const res = await fetch('https://graphql.datocms.com', {
+	const res = await fetch(process.env.CMS_GRAPHQL_ENDPOINT, {
 		method: 'POST',
 		headers: {
 			'Content-Type': 'application/json',
-			authorization: `Bearer ${process.env.DATOCMS_API_TOKEN}`,
+			authorization: `Bearer ${process.env.CMS_API_TOKEN}`,
 		},
 		body: JSON.stringify({
 			query: `
