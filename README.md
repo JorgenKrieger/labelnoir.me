@@ -1,4 +1,4 @@
-![Screenshot](.github/screenshot.jpg)
+![Screenshot](.github/screenshot.png)
 
 <h1 style="border:none">Labelnoir.me</h1>
 
