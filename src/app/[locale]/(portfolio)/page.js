@@ -1,13 +1,11 @@
 export function generateMetadata() {
 	return {
 		title: {
-			absolute: 'LabelNoir'
-		}
-	}
+			absolute: 'LabelNoir',
+		},
+	};
 }
 
 export default function Home() {
-	return (
-		<></>
-	);
+	return <></>;
 }

@@ -1,4 +1,4 @@
-export default async function getProject(slug) {
+export default async function getProject(slug, lang) {
 	const res = await fetch(process.env.CMS_GRAPHQL_ENDPOINT, {
 		method: 'POST',
 		headers: {
@@ -7,8 +7,8 @@ export default async function getProject(slug) {
 		},
 		body: JSON.stringify({
 			query: `
-				query getProject($slug: String!) {
-					case(filter: {slug: {eq: $slug}}) {
+				query getProject($slug: String!, $lang: SiteLocale) {
+					case(locale: $lang ,filter: {slug: {eq: $slug}}) {
 						title
 						client
 						role
@@ -79,6 +79,7 @@ export default async function getProject(slug) {
 			`,
 			variables: {
 				slug: slug,
+				lang: lang,
 			},
 		}),
 	});

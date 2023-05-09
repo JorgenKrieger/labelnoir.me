@@ -12,10 +12,13 @@
 		"cypress:headless": "cypress run"
 	},
 	"dependencies": {
+		"@formatjs/intl-localematcher": "^0.2.32",
 		"@vercel/analytics": "^1.0.1",
 		"eslint": "8.39.0",
 		"eslint-config-next": "13.4.0",
+		"negotiator": "^0.6.3",
 		"next": "13.4.0",
+		"next-intl": "2.14.0-beta.4",
 		"react": "18.2.0",
 		"react-datocms": "^4.0.13",
 		"react-dom": "18.2.0"

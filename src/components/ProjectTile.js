@@ -1,19 +1,22 @@
-'use client'
+'use client';
 
-import Link from "next/link";
-import { H } from "./Headings";
-import { StructuredText } from "react-datocms/structured-text";
+import Link from 'next/link';
+import { H } from './Headings';
+import { StructuredText } from 'react-datocms/structured-text';
+import { useTranslations } from 'next-intl';
 
-export default function ProjectTile({ data, children }) {
+export default async function ProjectTile({ data, children }) {
+	const t = useTranslations('home');
+
 	return (
-		<article style={{height: '100vh'}}>
+		<article style={{ height: '100vh' }}>
 			<header>
 				<H>{data.title}</H>
 				<StructuredText data={data.excerpt} />
-				<Link href={`/cases/${data.slug}`}>Explore</Link>
+				<Link href={`/cases/${data.slug}`}>{t('project_button')}</Link>
 			</header>
 
 			{children}
 		</article>
-	)
+	);
 }

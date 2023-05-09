@@ -1,0 +1,11 @@
+{
+	"home": {
+		"hello": "Hello",
+		"title": "I’m Jörgen, a Dutch designer trying to enrich the world through UX design and development.",
+		"project_button": "Explore"
+	},
+	"case": {
+		"challenge": "Challenge",
+		"outcome": "Outcome"
+	}
+}

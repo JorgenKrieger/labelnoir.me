@@ -1,4 +1,4 @@
-export default async function fetchAllProjects() {
+export default async function fetchAllProjects(lang) {
 	const res = await fetch(process.env.CMS_GRAPHQL_ENDPOINT, {
 		method: 'POST',
 		headers: {
@@ -7,8 +7,8 @@ export default async function fetchAllProjects() {
 		},
 		body: JSON.stringify({
 			query: `
-				query getAllProjects {
-					allCases {
+				query getAllProjects($lang: SiteLocale!) {
+					allCases(locale: $lang) {
 						slug
 						client
 						title
@@ -20,6 +20,9 @@ export default async function fetchAllProjects() {
 					}
 				}
 			`,
+			variables: {
+				lang: lang,
+			},
 		}),
 	});
 
