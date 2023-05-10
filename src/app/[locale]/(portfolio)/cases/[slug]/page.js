@@ -4,6 +4,8 @@ import { H, Section } from '@/components/Headings';
 import { StructuredText } from 'react-datocms/structured-text';
 import DynamicRecord from '@/components/content';
 import { getDictionary } from '@/app/[locale]/dictionaries';
+import fetchAllProjects from '../../query';
+import { i18n } from '@/i18n';
 
 // Reusable function with checks for GraphQL query
 async function getProjectData(slug, lang) {
@@ -14,6 +16,26 @@ async function getProjectData(slug, lang) {
 	}
 
 	return data.data.case;
+}
+
+// Generate static routes instead of on-demand
+export async function generateStaticParams() {
+	let paramsArray = [];
+	const data = await fetchAllProjects(i18n.defaultLocale);
+
+	data.data.allCases.map((project) => {
+		paramsArray.push({
+			slug: project.slug,
+			locale: i18n.locales[0],
+		});
+
+		paramsArray.push({
+			slug: project.slug,
+			locale: i18n.locales[1],
+		});
+	});
+
+	return paramsArray;
 }
 
 // Generate page-specific meta data

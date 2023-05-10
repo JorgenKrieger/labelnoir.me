@@ -1,12 +1,7 @@
 import createMiddleware from 'next-intl/middleware';
+import { i18n } from './i18n';
 
-export default createMiddleware({
-	// A list of all locales that are supported
-	locales: ['en', 'nl'],
-
-	// If this locale is matched, pathnames work without a prefix (e.g. `/about`)
-	defaultLocale: 'en',
-});
+export default createMiddleware(i18n);
 
 export const config = {
 	matcher: ['/((?!api|_next/static|_next/image|favicon.ico).*)'],
