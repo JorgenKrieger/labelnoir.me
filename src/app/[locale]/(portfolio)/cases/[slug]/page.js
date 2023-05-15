@@ -24,14 +24,11 @@ export async function generateStaticParams() {
 	const data = await fetchAllProjects(i18n.defaultLocale);
 
 	data.data.allCases.map((project) => {
-		paramsArray.push({
-			slug: project.slug,
-			locale: i18n.locales[0],
-		});
-
-		paramsArray.push({
-			slug: project.slug,
-			locale: i18n.locales[1],
+		i18n.locales.map((locale) => {
+			paramsArray.push({
+				slug: project.slug,
+				locale: locale,
+			});
 		});
 	});
 
