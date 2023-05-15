@@ -9,7 +9,7 @@ export default async function ProjectTile({ data, children }) {
 	const t = useTranslations('home');
 
 	return (
-		<article style={{ height: '100vh' }}>
+		<article style={{ height: '100vh', display: 'flex' }}>
 			<header>
 				<H>{data.title}</H>
 				<StructuredText data={data.excerpt} />

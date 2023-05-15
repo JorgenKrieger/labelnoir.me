@@ -7,8 +7,8 @@ export default async function fetchAllProjects(lang) {
 		},
 		body: JSON.stringify({
 			query: `
-				query getAllProjects($lang: SiteLocale!) {
-					allCases(locale: $lang) {
+				query getAllProjects($lang: SiteLocale = en) {
+					allCases(locale: $lang, fallbackLocales: en) {
 						slug
 						client
 						title

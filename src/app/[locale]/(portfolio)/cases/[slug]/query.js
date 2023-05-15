@@ -7,8 +7,8 @@ export default async function getProject(slug, lang) {
 		},
 		body: JSON.stringify({
 			query: `
-				query getProject($slug: String!, $lang: SiteLocale) {
-					case(locale: $lang ,filter: {slug: {eq: $slug}}) {
+				query getProject($slug: String!, $lang: SiteLocale = en) {
+					case(locale: $lang, fallbackLocales: en, filter: {slug: {eq: $slug}}) {
 						title
 						client
 						role
