@@ -1,0 +1,6 @@
+# Next.js files
+.next
+build
+
+# Public Folder
+public
