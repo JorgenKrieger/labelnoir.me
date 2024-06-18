@@ -1,0 +1,24 @@
+/* stylelint-disable -- ignore camelCase for external plugin */
+[data-aos='photo'] {
+	@apply scale-90
+	opacity-0
+	duration-300;
+
+	&.aos-animate {
+		@apply scale-100
+		opacity-100;
+	}
+}
+
+[data-aos='title'] {
+	@apply translate-y-1/2
+	opacity-0
+	duration-300;
+
+	&.aos-animate {
+		@apply translate-y-0
+		opacity-100;
+	}
+}
+
+/* stylelint-enable */

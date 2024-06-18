@@ -1,0 +1,8 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+# Lint and format staged files
+pnpm lint-staged
+
+# Verify typescript staged files
+pnpm tsc --build .

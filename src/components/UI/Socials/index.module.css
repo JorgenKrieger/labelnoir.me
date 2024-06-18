@@ -1,0 +1,17 @@
+.list {
+	@apply grid
+	w-full
+	grid-cols-6
+	justify-items-center;
+
+	a {
+		@apply grid
+		size-11
+		place-items-center;
+	}
+
+	svg {
+		@apply size-5
+		fill-noir-200;
+	}
+}

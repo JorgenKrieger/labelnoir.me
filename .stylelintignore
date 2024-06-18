@@ -1,0 +1,12 @@
+# Node.js
+node_modules
+
+# Next.js
+.next
+build
+
+# Public Folder
+public
+
+# Test
+coverage

@@ -1,0 +1,26 @@
+# Node.js
+node_modules
+.npm
+.pnpm
+
+# Next.js
+.next
+build
+
+# Test
+coverage
+
+# Vercel
+.vercel
+cache
+
+# Cache Files
+.eslintcache
+.stylelintcache
+.prettiercache
+
+# TypeScript
+tsconfig.tsbuildinfo
+
+# Metadata Files
+CODEOWNERS

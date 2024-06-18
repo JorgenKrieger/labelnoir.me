@@ -1,0 +1,64 @@
+.section {
+	@apply container
+	mx-auto
+	mb-12
+	flex
+	flex-col
+	items-center
+	px-safe-offset-14
+	md:mb-16
+	md:grid
+	md:grid-cols-2
+	2xl:mx-auto;
+
+	img {
+		@apply mb-12
+		w-16
+		md:mb-0;
+	}
+
+	div {
+		@apply flex
+		w-full
+		flex-col
+		justify-self-end
+		md:w-min
+		md:flex-col-reverse;
+	}
+
+	nav {
+		@apply flex
+		w-full
+		justify-between
+		md:w-auto
+		md:justify-end
+		md:gap-x-12;
+
+		a {
+			@apply font-display
+			text-base
+			font-bold
+			leading-11
+			text-noir-50
+			lg:text-2xl
+			lg:font-semibold;
+		}
+	}
+
+	ul {
+		@apply md:translate-x-5;
+	}
+
+	p {
+		@apply mt-8
+		text-center
+		leading-normal
+		text-noir-500
+		md:col-span-2
+		md:mt-12;
+
+		span {
+			@apply text-noir-300;
+		}
+	}
+}

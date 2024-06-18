@@ -1,0 +1,12 @@
+# Node.js
+node_modules
+
+# Next.js
+.next
+build
+
+# Tests
+coverage
+
+# This file naturally might break conventional ruuules
+global.d.ts

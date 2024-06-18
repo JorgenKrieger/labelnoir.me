@@ -1,0 +1,73 @@
+body {
+	@apply font-sans;
+}
+
+/* stylelint-disable */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+	@apply text-balance
+	text-noir-50;
+}
+
+h1,
+.h1 {
+	@apply font-display
+	font-bold
+	tracking-tighter
+	lg:leading-none;
+}
+
+h2,
+.h2 {
+	@apply font-semibold
+	tracking-tight
+	lg:leading-none;
+}
+
+h3,
+.h3 {
+	@apply font-semibold
+	tracking-tight
+	lg:leading-none;
+}
+
+/* stylelint-enable */
+
+p,
+ul,
+ol {
+	@apply text-[0.9375rem]
+	xl:text-[1.5rem];
+}
+
+blockquote {
+	@apply text-balance
+	font-display
+	font-semibold
+	leading-none
+	tracking-tighter
+	text-noir-50;
+}
+
+s {
+	@apply text-noir-600;
+}
+
+strong {
+	@apply text-noir-50;
+}
+
+p.small {
+	@apply text-[0.8125rem]
+	lg:text-[1rem];
+}

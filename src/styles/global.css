@@ -1,0 +1,10 @@
+@import 'tailwind.css';
+@import 'typography.css';
+@import 'aos.css';
+
+/* stylelint-disable */
+body:has(.hamburger-react[aria-expanded='true']) {
+	@apply overflow-y-hidden
+		lg:overflow-y-auto;
+}
+/* stylelint-enable */
