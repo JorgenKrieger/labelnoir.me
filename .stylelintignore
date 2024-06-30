@@ -10,3 +10,6 @@ public
 
 # Test
 coverage
+
+# Generated classes
+lint-free

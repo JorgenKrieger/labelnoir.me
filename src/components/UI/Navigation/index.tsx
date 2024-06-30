@@ -1,5 +1,6 @@
 'use client';
 
+// Imports
 import { Transition } from '@headlessui/react';
 import { Spin as Hamburger } from 'hamburger-react';
 import Image from 'next/image';
@@ -7,41 +8,46 @@ import Link from 'next/link';
 import type { FC } from 'react';
 import { useState } from 'react';
 
-import backgroundImage from '@/assets/gauze-01.jpeg';
-import logo from '@/assets/logo.svg';
-import Socials from '@/components/UI/Socials';
+import backgroundImage from 'Assets/gauze-01.jpeg';
+import logo from 'Assets/logo.svg';
+import nav from 'Data/nav.json';
+import Socials from 'UI/Socials';
 
 import styles from './index.module.css';
 
-const nav = [
-	{ text: 'Work', link: '/work' },
-	{ text: 'About', link: '/about' },
-	{ text: 'Articles', link: '/articles' },
-];
-
+// Main component
 const Navigation: FC = () => {
 	const [isOpen, setOpen] = useState<boolean>(false);
 
 	return (
 		<>
-			<header className={styles.section}>
-				<Link href="/">
-					<Image src={logo} alt="LabelNoir logo" />
+			<header className={styles.section} aria-label="Site navigation">
+				<Link
+					href="/"
+					aria-label="Go to homepage"
+					className="justify-self-start duration-200 hover:-rotate-6 hover:scale-110"
+				>
+					<Image priority={true} src={logo} alt="LabelNoir logo" />
 				</Link>
 
 				<Hamburger toggled={isOpen} toggle={setOpen} hideOutline={false} color="#FFFFFF" />
 
-				<nav>
-					{nav.map((item, index) => (
-						<Link
-							href={item.link}
-							key={item.text}
-							data-aos="fade"
-							data-aos-delay={index * 50}
-						>
-							{item.text}
-						</Link>
-					))}
+				<nav aria-label="Main navigation">
+					{nav
+						.filter(obj => obj.link != '/')
+						.map((item, index) => (
+							<Link
+								href={item.link}
+								key={item.text}
+								data-aos="fade"
+								data-aos-delay={index * 50}
+								data-aos-offset={0}
+								onClick={() => setOpen(false)}
+								className={styles.link}
+							>
+								{item.text}
+							</Link>
+						))}
 				</nav>
 			</header>
 
@@ -56,17 +62,19 @@ const Navigation: FC = () => {
 			>
 				<div className={styles.mobileNav}>
 					<Image src={backgroundImage} className={styles.background} alt="" />
-					<nav>
-						{nav.map((item, index) => (
-							<Link
-								href={item.link}
-								key={item.text}
-								data-aos="fade"
-								data-aos-delay={150 + index * 50}
-							>
-								{item.text}
-							</Link>
-						))}
+					<nav aria-label="Mobile navigation">
+						{nav
+							.filter(obj => obj.link != '/')
+							.map((item, index) => (
+								<Link
+									href={item.link}
+									key={item.text}
+									data-aos="fade"
+									data-aos-delay={150 + index * 50}
+								>
+									{item.text}
+								</Link>
+							))}
 					</nav>
 
 					<aside>
@@ -83,4 +91,5 @@ const Navigation: FC = () => {
 	);
 };
 
+// Exports
 export default Navigation;

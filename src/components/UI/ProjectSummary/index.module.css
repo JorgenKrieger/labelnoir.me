@@ -1,0 +1,21 @@
+.summary {
+	@apply grid
+	gap-y-12
+	lg:grid-cols-12;
+
+	p {
+		@apply text-p
+		leading-normal;
+	}
+}
+
+.challenge {
+	@apply space-y-3
+	lg:col-span-5;
+}
+
+.outcome {
+	@apply space-y-3
+	lg:col-span-5
+	lg:col-start-7;
+}

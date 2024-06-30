@@ -1,14 +1,8 @@
-import {
-	faCodepen,
-	faDribbble,
-	faGithub,
-	faInstagram,
-	faLinkedinIn,
-} from '@fortawesome/free-brands-svg-icons';
+import { faCodepen, faFigma, faGithub, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
 import type { IconDefinition } from '@fortawesome/free-solid-svg-icons';
 
-type TSocials = {
+type SNS = {
 	platform: string;
 	icon: IconDefinition;
 	url: string;
@@ -21,19 +15,14 @@ export default [
 		url: 'https://www.linkedin.com/in/jorgenkrieger/',
 	},
 	{
+		platform: 'figma',
+		icon: faFigma,
+		url: 'https://www.figma.com/@labelnoir',
+	},
+	{
 		platform: 'github',
 		icon: faGithub,
 		url: 'https://github.com/jorgenkrieger',
-	},
-	{
-		platform: 'instagram',
-		icon: faInstagram,
-		url: 'https://www.instagram.com/jorgenkrieger/',
-	},
-	{
-		platform: 'dribbble',
-		icon: faDribbble,
-		url: 'https://dribbble.com/labelnoir',
 	},
 	{
 		platform: 'codepen',
@@ -45,4 +34,4 @@ export default [
 		icon: faEnvelope,
 		url: 'mailto:jorgen@labelnoir.me',
 	},
-] satisfies Array<TSocials>;
+] satisfies Array<SNS>;

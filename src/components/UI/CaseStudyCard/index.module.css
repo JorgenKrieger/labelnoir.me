@@ -1,0 +1,65 @@
+.case {
+	@apply grid
+	items-baseline
+	md:grid-cols-2
+	lg:grid-cols-12;
+}
+
+.imageLink {
+	@apply relative
+	col-span-full
+	mb-6
+	h-96
+	overflow-clip
+	xl:mb-8
+	md:landscape:h-72
+	lg:landscape:h-96
+	xl:landscape:h-[40rem];
+
+	picture,
+	img {
+		@apply absolute
+		left-0
+		top-0
+		!size-full
+		object-cover
+		duration-300;
+	}
+
+	&:hover img {
+		@apply scale-110;
+	}
+}
+
+.client {
+	@apply text-h3
+	font-semibold
+	leading-tight
+	tracking-tighter
+	text-noir-50
+	lg:col-span-5;
+}
+
+.description {
+	@apply mt-2
+	text-p-small
+	leading-normal
+	md:mt-0
+	lg:col-span-5;
+}
+
+.link {
+	@apply mt-3
+	text-p-small
+	font-semibold
+	text-noir-50
+	md:col-start-2
+	lg:col-span-2
+	lg:mt-0
+	lg:justify-self-end;
+
+	&::after {
+		@apply ml-2
+		content-["->"];
+	}
+}

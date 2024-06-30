@@ -1,0 +1,18 @@
+[
+	{
+		"text": "Home",
+		"link": "/"
+	},
+	{
+		"text": "Work",
+		"link": "/work"
+	},
+	{
+		"text": "About",
+		"link": "/about"
+	},
+	{
+		"text": "Articles",
+		"link": "/articles"
+	}
+]

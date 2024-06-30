@@ -1,0 +1,22 @@
+.section {
+	@apply grid
+	grid-cols-2
+	gap-y-12
+	md:gap-y-12
+	lg:grid-cols-4;
+
+	ul {
+		@apply flex
+		flex-col
+		gap-y-3
+		md:gap-y-4;
+
+		li {
+			@apply text-p-small;
+		}
+	}
+}
+
+.heading {
+	@apply col-span-full;
+}

@@ -2,6 +2,7 @@
 	@apply container
 	mx-auto
 	mb-12
+	mt-32
 	flex
 	flex-col
 	items-center
@@ -9,6 +10,7 @@
 	md:mb-16
 	md:grid
 	md:grid-cols-2
+	xl:mt-64
 	2xl:mx-auto;
 
 	img {
@@ -52,13 +54,13 @@
 	p {
 		@apply mt-8
 		text-center
+		text-p-small
 		leading-normal
-		text-noir-500
 		md:col-span-2
 		md:mt-12;
 
 		span {
-			@apply text-noir-300;
+			@apply text-noir-100;
 		}
 	}
 }

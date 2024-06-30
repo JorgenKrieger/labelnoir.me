@@ -1,0 +1,5 @@
+.figcaption {
+	@apply mt-2
+	font-light
+	text-noir-300;
+}

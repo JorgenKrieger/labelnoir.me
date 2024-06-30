@@ -1,0 +1,25 @@
+query AboutMe {
+	aboutMe {
+		stats
+		profilePhoto {
+			responsiveImage(
+				imgixParams: {fm: webp, h: "600", w: "600", fit: facearea, crop: focalpoint, facepad: "5"}
+			) {
+				src
+				srcSet
+				width
+				height
+				alt
+				sizes
+			}
+		}
+		biography {
+			value
+		}
+		quote
+		concepting
+		design
+		development
+		management
+	}
+}

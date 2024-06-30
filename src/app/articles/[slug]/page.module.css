@@ -1,0 +1,21 @@
+.article {
+	@apply lg:grid
+	lg:grid-cols-3;
+}
+
+.toc {
+	@apply sticky
+	top-48
+	space-y-8;
+}
+
+.tocHeading {
+	@apply text-h3
+	font-semibold
+	tracking-tight
+	text-noir-50;
+}
+
+.content {
+	@apply lg:col-span-2;
+}

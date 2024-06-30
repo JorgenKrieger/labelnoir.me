@@ -1,0 +1,24 @@
+.title {
+	@apply relative;
+}
+
+.anchor {
+	@apply absolute
+	inline-block
+	size-[1em]
+	translate-x-[-110%]
+	text-noir-300
+	opacity-0
+	transition
+	delay-200;
+
+	.title:hover & {
+		@apply translate-x-[-125%]
+		opacity-100
+		delay-0;
+	}
+
+	&:hover {
+		@apply scale-110;
+	}
+}

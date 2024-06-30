@@ -1,0 +1,41 @@
+@layer components {
+	.section {
+		@apply container
+		mx-auto
+		px-safe-offset-14;
+	}
+
+	.spaceInSections {
+		@apply flex
+		w-full
+		flex-col
+		gap-y-16
+		lg:gap-y-24
+		xl:gap-y-32
+		2xl:gap-y-48;
+	}
+
+	.unsetInSectionSpacing {
+		@apply -mt-16
+		lg:-mt-24
+		xl:-mt-32
+		2xl:-mt-48;
+	}
+
+	.spaceInPage {
+		@apply flex
+		w-full
+		flex-col
+		gap-y-24
+		lg:gap-y-32
+		xl:gap-y-64
+		2xl:gap-y-96;
+	}
+
+	.unsetInPageSpacing {
+		@apply -mt-24
+		lg:-mt-32
+		xl:-mt-64
+		2xl:-mt-96;
+	}
+}

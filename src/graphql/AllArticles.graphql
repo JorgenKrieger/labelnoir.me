@@ -1,0 +1,8 @@
+query AllArticles {
+	allArticles {
+		_createdAt
+		title
+		tag
+		slug
+	}
+}

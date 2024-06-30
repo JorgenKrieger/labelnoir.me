@@ -1,0 +1,10 @@
+query Home {
+	home {
+		title
+		introduction {
+			value
+		}
+		clientHeading
+		clients
+	}
+}

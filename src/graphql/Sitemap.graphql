@@ -1,0 +1,19 @@
+query Sitemap {
+	home {
+		_updatedAt
+	}
+
+	allArticles {
+		slug
+		_updatedAt
+	}
+
+	allProjects {
+		slug
+		_updatedAt
+	}
+
+	about {
+		_updatedAt
+	}
+}

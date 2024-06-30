@@ -1,0 +1,31 @@
+query Article($slug: String!) {
+	article(filter: {slug: {eq: $slug}}) {
+		title
+		slug
+		content {
+			...Code
+			...Text
+			...Quote
+			...Media
+		}
+		featureImage {
+			responsiveImage {
+				# Always required
+				src
+				srcSet
+				width
+				height
+
+				# Not required, but strongly suggested!
+				alt
+				title
+
+				# Blur-up placeholder, JPEG format, base64-encoded, or...
+				base64
+				# Background color placeholder
+				bgColor
+			}
+		}
+	}
+}
+

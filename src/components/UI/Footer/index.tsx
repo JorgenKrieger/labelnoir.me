@@ -1,19 +1,15 @@
+// Imports
 import Image from 'next/image';
 import Link from 'next/link';
 import type { FC } from 'react';
 
-import logo from '@/assets/logo.svg';
-import Socials from '@/components/UI/Socials';
+import logo from 'Assets/logo.svg';
+import nav from 'Data/nav.json';
+import Socials from 'UI/Socials';
 
 import styles from './index.module.css';
 
-const nav = [
-	{ text: 'Home', link: '/' },
-	{ text: 'Work', link: '/work' },
-	{ text: 'About', link: '/about' },
-	{ text: 'Articles', link: '/articles' },
-];
-
+// Main component
 const Footer: FC = () => {
 	return (
 		<footer className={styles.section}>
@@ -21,13 +17,14 @@ const Footer: FC = () => {
 
 			<div>
 				<Socials />
-				<nav data-aos="fade">
+				<nav data-aos="fade" data-aos-offset="50">
 					{nav.map((item, index) => (
 						<Link
 							href={item.link}
 							key={item.text}
 							data-aos="fade"
 							data-aos-delay={index * 50}
+							data-aos-offset="50"
 						>
 							{item.text}
 						</Link>
@@ -35,7 +32,7 @@ const Footer: FC = () => {
 				</nav>
 			</div>
 
-			<p className="small" data-aos="fade" data-aos-offset="50">
+			<p className="small" data-aos="fade" data-aos-offset="0">
 				Published under CC licence.
 				<br />
 				Designed with love in 🧡 <span>The Netherlands</span>
@@ -44,4 +41,5 @@ const Footer: FC = () => {
 	);
 };
 
+// Exports
 export default Footer;

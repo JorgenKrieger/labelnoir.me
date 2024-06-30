@@ -1,0 +1,62 @@
+.section {
+	.innerSection {
+		@apply grid
+		border-t-[3px]
+		border-noir-50
+		lg:grid-cols-3;
+	}
+
+	.year {
+		@apply pt-6
+		font-display
+		text-h2
+		font-bold
+		text-noir-50;
+	}
+
+	.articles {
+		@apply flex
+		flex-col
+		lg:col-span-2;
+	}
+}
+
+.tile {
+	@apply border-b
+	border-noir-500
+	py-6
+	lg:grid
+	lg:grid-cols-8;
+}
+
+.title {
+	@apply justify-self-start
+	text-h3
+	font-medium
+	tracking-tight
+	text-noir-50
+	lg:col-span-5;
+}
+
+.tag {
+	@apply flex
+	gap-x-2
+	self-center
+	text-p-intro
+	lg:col-span-2;
+
+	.tagIcon {
+		@apply size-6
+		text-noir-500;
+	}
+}
+
+.arrowLink {
+	@apply self-center
+	justify-self-end;
+
+	.arrow {
+		@apply size-6
+		text-noir-50;
+	}
+}

@@ -1,0 +1,6 @@
+@layer components {
+	body:has(.hamburger-react[aria-expanded='true']) {
+		@apply overflow-y-hidden
+		lg:overflow-y-auto;
+	}
+}

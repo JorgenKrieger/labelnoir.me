@@ -1,73 +1,95 @@
-body {
-	@apply font-sans;
-}
+@layer base {
+	body {
+		@apply font-sans;
+	}
 
-/* stylelint-disable */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-.h1,
-.h2,
-.h3,
-.h4,
-.h5,
-.h6 {
-	@apply text-balance
-	text-noir-50;
-}
+	/* stylelint-disable */
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6,
+	.h1,
+	.h2,
+	.h3,
+	.h4,
+	.h5,
+	.h6 {
+		@apply text-balance
+		text-noir-50;
+	}
 
-h1,
-.h1 {
-	@apply font-display
-	font-bold
-	tracking-tighter
-	lg:leading-none;
-}
+	h1,
+	.h1 {
+		@apply font-display
+		text-h1
+		font-bold
+		tracking-tighter
+		lg:leading-none;
+	}
 
-h2,
-.h2 {
-	@apply font-semibold
-	tracking-tight
-	lg:leading-none;
-}
+	h2,
+	.h2 {
+		@apply text-h2
+		font-semibold
+		leading-none
+		tracking-tight;
+	}
 
-h3,
-.h3 {
-	@apply font-semibold
-	tracking-tight
-	lg:leading-none;
-}
+	h3,
+	.h3 {
+		@apply text-h3
+		font-semibold
+		leading-none
+		tracking-tight;
+	}
 
-/* stylelint-enable */
+	/* stylelint-enable */
+	p,
+	ul,
+	ol {
+		@apply font-light
+		leading-normal
+		xl:leading-tight
+		hd:text-p;
+	}
 
-p,
-ul,
-ol {
-	@apply text-[0.9375rem]
-	xl:text-[1.5rem];
-}
+	ul:not([class]),
+	ol:not([class]) {
+		@apply space-y-2
+		pl-[1em]
+		lg:space-y-4
+		2xl:space-y-6;
+	}
 
-blockquote {
-	@apply text-balance
-	font-display
-	font-semibold
-	leading-none
-	tracking-tighter
-	text-noir-50;
-}
+	ul:not([class]) {
+		@apply list-disc;
+	}
 
-s {
-	@apply text-noir-600;
-}
+	ol:not([class]) {
+		@apply list-decimal;
+	}
 
-strong {
-	@apply text-noir-50;
-}
+	blockquote {
+		@apply text-balance
+		font-display
+		font-semibold
+		leading-none
+		tracking-tighter
+		text-noir-50;
+	}
 
-p.small {
-	@apply text-[0.8125rem]
-	lg:text-[1rem];
+	s {
+		@apply text-noir-600;
+	}
+
+	strong {
+		@apply font-semibold
+		text-noir-50;
+	}
+
+	p.small {
+		@apply text-p-small;
+	}
 }

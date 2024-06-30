@@ -1,0 +1,39 @@
+.section {
+	@apply grid
+	gap-y-12
+	md:grid-cols-12;
+}
+
+.profilePicture {
+	@apply aspect-square
+	max-w-64
+	overflow-clip
+	rounded-full
+	object-cover
+	md:col-span-3
+	md:portrait:col-span-full
+	lg:portrait:col-span-3;
+}
+
+.text {
+	@apply space-y-[1.5em]
+	leading-normal
+	md:col-span-8
+	md:col-start-5
+	md:portrait:col-span-full
+	lg:portrait:col-span-8;
+
+	p {
+		@apply leading-normal;
+
+		&:first-child {
+			@apply text-p-intro
+			leading-tight;
+		}
+	}
+
+	a {
+		@apply text-noir-50
+		underline;
+	}
+}

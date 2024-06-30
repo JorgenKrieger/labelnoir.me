@@ -1,0 +1,44 @@
+.quote {
+	@apply relative
+	font-display
+	text-quote
+	leading-none
+	tracking-tighter;
+
+	&::before {
+		@apply absolute
+		-translate-x-full
+		content-["“"];
+	}
+
+	&::after {
+		@apply content-["”"];
+	}
+
+	p {
+		display: inline;
+		font-size: inherit;
+	}
+}
+
+.figure {
+	@apply relative
+	w-full
+	py-12
+	md:py-24
+	lg:py-48
+	xl:py-96;
+}
+
+.image {
+	@apply absolute
+	left-0
+	top-0
+	z-[-1]
+	h-full
+	w-full
+	object-cover
+	opacity-65;
+
+	mask-image: linear-gradient(to bottom, black 50%, transparent);
+}

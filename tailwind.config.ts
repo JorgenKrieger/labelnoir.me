@@ -27,7 +27,18 @@ export default {
 			fontFamily: {
 				display: ['var(--font-space-grotesk)'],
 				sans: ['var(--font-geist-sans)'],
-				mono: ['var(--font-geist-mono)'],
+				mono: ['var(--font-space-mono)'],
+			},
+			fontSize: {
+				h1: 'var(--font-size-h1)',
+				h2: 'var(--font-size-h2)',
+				h3: 'var(--font-size-h3)',
+				'p-jumbo': 'var(--font-size-p-jumbo)',
+				'p-intro': 'var(--font-size-p-intro)',
+				p: 'var(--font-size-p)',
+				'p-small': 'var(--font-size-p-small)',
+				quote: 'var(--font-size-quote)',
+				'10xl': '10rem',
 			},
 			lineHeight: {
 				'11': '2.75rem',
@@ -36,6 +47,7 @@ export default {
 				'@2x': {
 					raw: 'only screen and (min-resolution: 2dppx)',
 				},
+				hd: '1920px',
 			},
 		},
 	},

@@ -20,7 +20,12 @@
 			}
 		],
 		"paths": {
-			"@/*": ["./src/*"]
+			"@/*": ["./src/*"],
+			"Assets/*": ["./src/assets/*"],
+			"Content/*": ["./src/components/Content/*"],
+			"Data/*": ["./src/data/*"],
+			"Helpers/*": ["./src/components/Helpers/*"],
+			"UI/*": ["./src/components/UI/*"]
 		},
 		"baseUrl": "."
 	},

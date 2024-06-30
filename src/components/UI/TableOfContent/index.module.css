@@ -1,0 +1,8 @@
+.link {
+	@apply font-display
+	text-p-small
+	leading-tight
+	tracking-tight
+	underline
+	underline-offset-2;
+}

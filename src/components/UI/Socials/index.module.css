@@ -1,8 +1,10 @@
 .list {
 	@apply grid
 	w-full
-	grid-cols-6
-	justify-items-center;
+	list-none
+	grid-cols-5
+	justify-items-center
+	space-y-0;
 
 	a {
 		@apply grid

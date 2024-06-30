@@ -1,0 +1,43 @@
+:root {
+	--font-size-h1: 2.25rem;
+	--font-size-h2: 1.5rem;
+	--font-size-h3: 1.5rem;
+	--font-size-p-jumbo: 1.5rem;
+	--font-size-p-intro: 1.25rem;
+	--font-size-p: 0.9375rem;
+	--font-size-p-small: 0.8125rem;
+	--font-size-quote: 2.25rem;
+
+	@screen lg {
+		--font-size-h1: 4rem;
+		--font-size-h2: 3rem;
+		--font-size-h3: 2rem;
+		--font-size-p-jumbo: 2rem;
+		--font-size-p-intro: 1.6875rem;
+		--font-size-p: 1.25rem;
+		--font-size-p-small: 1rem;
+		--font-size-quote: 4rem;
+	}
+
+	@screen xl {
+		--font-size-h1: 8rem;
+		--font-size-h2: 3rem;
+		--font-size-h3: 2rem;
+		--font-size-p-jumbo: 4rem;
+		--font-size-p-intro: 2rem;
+		--font-size-p: 1.5rem;
+		--font-size-p-small: 1rem;
+		--font-size-quote: 8rem;
+	}
+
+	@screen hd {
+		--font-size-h1: 10rem;
+		--font-size-h2: 6rem;
+		--font-size-h3: 3rem;
+		--font-size-p-jumbo: 5rem;
+		--font-size-p-intro: 3rem;
+		--font-size-p: 2.25rem;
+		--font-size-p-small: 1.5rem;
+		--font-size-quote: 9rem;
+	}
+}

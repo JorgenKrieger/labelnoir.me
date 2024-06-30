@@ -1,0 +1,41 @@
+.statsBar {
+	@apply grid
+	grid-cols-[6fr,4fr]
+	gap-y-8
+	border-y
+	border-noir-600
+	py-4
+	md:grid-cols-2
+	md:py-12
+	lg:flex
+	lg:justify-between
+	xl:py-16
+	hd:py-24;
+}
+
+.label {
+	@apply font-mono
+	text-p
+	font-bold
+	leading-normal
+	tracking-tighter
+	text-noir-50
+	antialiased;
+}
+
+.link {
+	@apply text-p
+	leading-normal
+	tracking-tight
+	underline;
+}
+
+.list {
+	@apply list-disc
+	pl-[1em]
+	text-p;
+}
+
+.value {
+	@apply text-p;
+}

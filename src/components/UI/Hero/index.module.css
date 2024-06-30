@@ -1,5 +1,62 @@
 .section {
-	@apply grid
+	@apply relative
+	grid
 	grid-cols-6
-	md:grid-cols-12;
+	gap-y-8
+	pt-64
+	md:grid-cols-12
+	md:landscape:pt-36
+	lg:landscape:pt-64
+	xl:landscape:pt-96;
+}
+
+.title {
+	@apply col-span-full
+	text-h1;
+}
+
+.description {
+	@apply col-span-full
+	space-y-[1.25em]
+	text-p-intro
+	font-light
+	leading-tight
+	tracking-tight
+	md:col-span-8
+	md:col-start-5
+	lg:col-span-8
+
+	lg:col-start-5 {
+		font-size: inherit;
+		font-weight: inherit;
+	}
+
+	strong {
+		@apply font-semibold;
+	}
+}
+
+.background {
+	@apply absolute
+	left-0
+	top-0
+	z-[-1]
+	h-[75svh]
+	w-full
+	object-cover
+	opacity-75
+	md:h-screen
+	md:portrait:h-[50svh]
+	lg:portrait:h-screen;
+
+	mask-image: linear-gradient(to bottom, black 50%, transparent);
+
+	img {
+		@apply absolute
+		left-0
+		top-0
+		!h-full
+		!w-full
+		object-cover;
+	}
 }

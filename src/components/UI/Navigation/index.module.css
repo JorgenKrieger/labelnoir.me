@@ -1,6 +1,6 @@
 .section {
 	@apply fixed
-		left-1/2
+	left-1/2
 	top-12
 	z-50
 	mx-auto
@@ -10,7 +10,8 @@
 	grid-cols-6
 	items-center
 	px-safe-offset-14
-	lg:container;
+	lg:container
+	lg:grid-cols-12;
 
 	img {
 		@apply z-50
@@ -26,8 +27,8 @@
 
 	> nav {
 		@apply hidden
-		lg:col-span-3
-		lg:col-start-4
+		lg:col-span-5
+		lg:col-start-8
 		lg:flex
 		lg:justify-between;
 	}
@@ -44,6 +45,13 @@
 	opacity-50;
 }
 
+.link {
+	@apply text-p-small
+	font-light
+	tracking-tight
+	text-noir-50;
+}
+
 .mobileNav {
 	@apply fixed
 	left-0
@@ -57,10 +65,10 @@
 	bg-noir-900
 	pb-16
 	px-safe-offset-14
-	md:pt-40
 	lg:hidden
-	md:landscape:grid
-	md:landscape:grid-cols-2;
+	landscape:grid
+	landscape:grid-cols-2
+	landscape:pt-40;
 
 	nav {
 		@apply mb-32
