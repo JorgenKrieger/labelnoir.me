@@ -1,15 +1,19 @@
 // Imports
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import type { FC } from 'react';
+import classNames from 'classnames';
+import type { FC, HTMLAttributes } from 'react';
 
 import socials from 'Data/socials';
 
 import styles from './index.module.css';
 
+// Types
+type C = FC<HTMLAttributes<HTMLUListElement>>;
+
 // Main component
-const Socials: FC = () => {
+const Socials: C = ({ className }) => {
 	return (
-		<ul className={styles.list}>
+		<ul className={classNames(className, styles.list)}>
 			{socials.map((sns, index) => (
 				<li
 					key={sns.platform}

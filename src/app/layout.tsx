@@ -38,7 +38,7 @@ const FONTS = classNames(
 const RootLayout: FC<PropsWithChildren> = ({ children }) => {
 	return (
 		<html className={classNames('scroll-pt-48 scroll-smooth', FONTS)} lang="en">
-			<body className="flex min-h-svh flex-col items-center bg-noir-900 text-noir-300">
+			<body className="flex min-h-svh flex-col items-center bg-noir-900 text-noir-300 selection:bg-noir-50 selection:text-noir-900">
 				<AnimateOnScroll />
 
 				<Navigation />

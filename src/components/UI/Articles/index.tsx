@@ -1,9 +1,9 @@
 // Imports
-import { faArrowRight, faTag } from '@fortawesome/free-solid-svg-icons';
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classNames from 'classnames';
 import Link from 'next/link';
-import type { FC, PropsWithChildren } from 'react';
+import type { FC, HTMLAttributes, PropsWithChildren } from 'react';
 
 import type { ArticleRecord } from '@/types/graphql';
 
@@ -15,9 +15,10 @@ type TC = FC<{
 }>;
 
 type MC = FC<
-	PropsWithChildren & {
-		year: string;
-	}
+	PropsWithChildren &
+		HTMLAttributes<HTMLDivElement> & {
+			label: string;
+		}
 > & {
 	Tile: TC;
 };
@@ -26,14 +27,8 @@ type MC = FC<
 const ArticleTile: TC = ({ article }) => {
 	return (
 		<article className={styles.tile} data-aos="fade-in">
-			<Link className={styles.title} href={`articles/${article.slug}`}>
-				{article.title}
-			</Link>
-			<p className={styles.tag}>
-				<FontAwesomeIcon icon={faTag} className={styles.tagIcon} />
-				{article.tag}
-			</p>
-			<Link href={`articles/${article.slug}`} className={styles.arrowLink}>
+			<Link className={styles.link} href={`/articles/${article.slug}`}>
+				<span>{article.title}</span>
 				<FontAwesomeIcon className={styles.arrow} icon={faArrowRight} />
 			</Link>
 		</article>
@@ -41,12 +36,12 @@ const ArticleTile: TC = ({ article }) => {
 };
 
 // Main component
-const ArticleList: MC = ({ year, children, ...props }) => {
+const ArticleList: MC = ({ label, children, className, ...props }) => {
 	return (
-		<div className={classNames('section', styles.section)} {...props}>
+		<div className={classNames('section', styles.section, className)} {...props}>
 			<div className={styles.innerSection}>
-				<p data-aos="title" className={styles.year}>
-					{year}
+				<p data-aos="title" className={styles.label}>
+					{label}
 				</p>
 				<div className={styles.articles}>{children}</div>
 			</div>

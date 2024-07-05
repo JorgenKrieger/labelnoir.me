@@ -5,8 +5,9 @@ import { Transition } from '@headlessui/react';
 import { Spin as Hamburger } from 'hamburger-react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import type { FC } from 'react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import backgroundImage from 'Assets/gauze-01.jpeg';
 import logo from 'Assets/logo.svg';
@@ -18,6 +19,12 @@ import styles from './index.module.css';
 // Main component
 const Navigation: FC = () => {
 	const [isOpen, setOpen] = useState<boolean>(false);
+
+	const pathname = usePathname();
+
+	useEffect(() => {
+		setOpen(false);
+	}, [pathname]);
 
 	return (
 		<>

@@ -1,9 +1,10 @@
 // Imports
 import type { FC } from 'react';
+import { type SeoOrFaviconTag, toNextMetadata } from 'react-datocms';
 
 import { performRequest } from '@/lib/datocms';
-import type { ArticleRecord } from '@/types/graphql';
-import { AllArticlesDocument } from '@/types/graphql';
+import type { ArticleOverviewRecord, ArticleRecord } from '@/types/graphql';
+import { ArticleOverviewDocument, AllArticlesDocument } from '@/types/graphql';
 import ArticleList from 'UI/Articles';
 import Hero from 'UI/Hero';
 
@@ -12,13 +13,32 @@ type GroupedArticles = {
 	[year: number]: Array<ArticleRecord>;
 };
 
-// Page component
-const Articles: FC = async () => {
+// GraphQL fetcher
+const fetchData = async () => {
 	const {
 		allArticles,
 	}: {
 		allArticles: Array<ArticleRecord>;
 	} = await performRequest({ query: AllArticlesDocument });
+
+	const {
+		articleOverview,
+	}: {
+		articleOverview: ArticleOverviewRecord;
+	} = await performRequest({ query: ArticleOverviewDocument });
+
+	return { articleOverview, allArticles };
+};
+
+// Meta data
+export const generateMetadata = async () => {
+	const { articleOverview } = await fetchData();
+	return toNextMetadata([...(articleOverview._seoMetaTags as Array<SeoOrFaviconTag>)]);
+};
+
+// Page component
+const Articles: FC = async () => {
+	const { articleOverview, allArticles } = await fetchData();
 
 	const groupedArticlesByYear = allArticles.reduce<GroupedArticles>((acc, article) => {
 		const year = new Date(article._createdAt).getFullYear();
@@ -33,7 +53,7 @@ const Articles: FC = async () => {
 
 	return (
 		<main className="spaceInPage">
-			<Hero>
+			<Hero img={articleOverview.backgroundImage?.responsiveImage}>
 				<Hero.Title>Articles</Hero.Title>
 				<Hero.Description>
 					<p className="text-right">
@@ -47,7 +67,7 @@ const Articles: FC = async () => {
 					.sort(([a, b]) => Number(b) - Number(a))
 					.reverse()
 					.map(([year, articles]) => (
-						<ArticleList key={year} year={year}>
+						<ArticleList key={year} label={year}>
 							{articles.map(article => (
 								<ArticleList.Tile key={article.title} article={article} />
 							))}

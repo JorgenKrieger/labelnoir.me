@@ -9,17 +9,12 @@ import styles from './index.module.css';
 // Types
 type C = FC<
 	HTMLAttributes<HTMLDivElement> & {
-		column1: Array<string>;
-		column2: Array<string>;
-		column3: Array<string>;
-		column4: Array<string>;
+		data: Array<Array<string>>;
 	}
 >;
 
 // Main component
-const Expertise: C = ({ column1, column2, column3, column4, className, ...props }) => {
-	const columns: { [key: string]: Array<string> } = { column1, column2, column3, column4 };
-
+const Expertise: C = ({ data, className, ...props }) => {
 	return (
 		<div
 			className={classNames('section unsetInPageSpacing', styles.section, className)}
@@ -29,9 +24,9 @@ const Expertise: C = ({ column1, column2, column3, column4, className, ...props 
 				Expertise
 			</H>
 
-			{Object.keys(columns).map((columnKey, columnIndex) => (
-				<ul key={columnKey}>
-					{columns[columnKey].map((item, index) => (
+			{data.map((column, columnIndex) => (
+				<ul key={`column${columnIndex}`}>
+					{column.map((item, index) => (
 						<li
 							key={item}
 							data-aos="fade-in"

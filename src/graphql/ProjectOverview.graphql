@@ -1,0 +1,14 @@
+query ProjectOverview {
+	projectOverview {
+		title
+		tagline
+		backgroundImage {
+			...SRCImage
+		}
+		_seoMetaTags {
+			attributes
+			tag
+			content
+		}
+	}
+}

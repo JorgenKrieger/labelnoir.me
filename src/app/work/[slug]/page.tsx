@@ -1,6 +1,8 @@
 // Imports
 import { notFound } from 'next/navigation';
 import type { FC } from 'react';
+import type { SeoOrFaviconTag } from 'react-datocms';
+import { toNextMetadata } from 'react-datocms';
 
 import { Section } from '@/components/Abstracts/headings';
 import { performRequest } from '@/lib/datocms';
@@ -12,16 +14,21 @@ import ProjectMetaData from 'UI/ProjectMetaData';
 import ProjectSummary from 'UI/ProjectSummary';
 
 // Types
-type TCaseStudy = FC<{
+type C = FC<{
 	params: {
 		slug: string;
 	};
 }>;
 
-// Disable dynamic pages
+/**
+ * Static Site Generation
+ * ---
+ * - Disable dynamic pages
+ *
+ * - Generate static pages
+ */
 export const dynamicParams = false;
 
-// Generate static pages
 export const generateStaticParams = async () => {
 	const {
 		allProjects,
@@ -34,12 +41,29 @@ export const generateStaticParams = async () => {
 	}));
 };
 
-// Main component
-const CaseStudy: TCaseStudy = async ({ params: { slug } }) => {
+/**
+ * Page functionality
+ * ---
+ */
+// GraphQL fetcher
+const fetchData = async (slug: string) => {
 	const { project }: { project: ProjectRecord } = await performRequest({
 		query: ProjectDocument,
 		variables: { slug: slug },
 	});
+
+	return project;
+};
+
+// Meta data
+export const generateMetadata = async ({ params: { slug } }: { params: { slug: string } }) => {
+	const project = await fetchData(slug);
+	return toNextMetadata([...(project.seo as Array<SeoOrFaviconTag>)] || []);
+};
+
+// Main component
+const CaseStudy: C = async ({ params: { slug } }) => {
+	const project = await fetchData(slug);
 
 	if (!project) {
 		notFound();
@@ -67,6 +91,7 @@ const CaseStudy: TCaseStudy = async ({ params: { slug } }) => {
 				websiteUrl={project.websiteUrl}
 			/>
 
+			{/* Modular content */}
 			<div className="spaceInPage">
 				{project.pageBuilder.map(section => (
 					<PageBuilder key={section.id} section={section} />

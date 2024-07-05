@@ -6,11 +6,13 @@
 		lg:grid-cols-3;
 	}
 
-	.year {
-		@apply pt-6
+	.label {
+		@apply pr-12
+		pt-6
 		font-display
 		text-h2
 		font-bold
+		tracking-tighter
 		text-noir-50;
 	}
 
@@ -22,41 +24,24 @@
 }
 
 .tile {
-	@apply border-b
+	@apply flex
+	border-b
 	border-noir-500
-	py-6
-	lg:grid
-	lg:grid-cols-8;
+	py-6;
 }
 
-.title {
-	@apply justify-self-start
+.link {
+	@apply flex
+	w-full
+	justify-between
 	text-h3
 	font-medium
 	tracking-tight
 	text-noir-50
-	lg:col-span-5;
+	lg:items-center;
 }
 
-.tag {
-	@apply flex
-	gap-x-2
-	self-center
-	text-p-intro
-	lg:col-span-2;
-
-	.tagIcon {
-		@apply size-6
-		text-noir-500;
-	}
-}
-
-.arrowLink {
-	@apply self-center
-	justify-self-end;
-
-	.arrow {
-		@apply size-6
-		text-noir-50;
-	}
+.arrow {
+	@apply size-6
+	-rotate-45;
 }

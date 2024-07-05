@@ -1,26 +1,43 @@
 // Imports
 import classNames from 'classnames';
 import type { FC } from 'react';
+import { type SeoOrFaviconTag, toNextMetadata } from 'react-datocms';
 
+import { H } from '@/components/Abstracts/headings';
 import { performRequest } from '@/lib/datocms';
-import type { AboutMeRecord, TextModelContentField } from '@/types/graphql';
-import { AboutMeDocument } from '@/types/graphql';
+import { type AboutMeRecord, type TextModelContentField, AboutMeDocument } from '@/types/graphql';
 import image from 'Assets/gauze-05.jpeg';
+import Gallery from 'Content/Gallery';
 import Quote from 'Content/Quote';
+import ImageHelper from 'Helpers/Image';
 import TextHelper from 'Helpers/Text';
 import Biography from 'UI/Biography';
+import BusinessCard from 'UI/BusinessCard';
 import Expertise from 'UI/Expertise';
 import Hero from 'UI/Hero';
 
 import styles from './page.module.css';
 
-// Page components
-const About: FC = async () => {
+// GraphQL fetcher
+const fetchData = async () => {
 	const {
 		aboutMe,
 	}: {
 		aboutMe: AboutMeRecord;
 	} = await performRequest({ query: AboutMeDocument });
+
+	return aboutMe;
+};
+
+// Meta data
+export const generateMetadata = async () => {
+	const aboutMe = await fetchData();
+	return toNextMetadata([...(aboutMe._seoMetaTags as Array<SeoOrFaviconTag>)]);
+};
+
+// Page components
+const About: FC = async () => {
+	const aboutMe = await fetchData();
 
 	return (
 		<main className="spaceInPage">
@@ -28,7 +45,9 @@ const About: FC = async () => {
 				<Hero.Title className="text-center">Profile</Hero.Title>
 			</Hero>
 
-			<div className={classNames('section unsetInPageSpacing', styles.stats)}>
+			<BusinessCard data={aboutMe} />
+
+			<div className={classNames('section', 'unsetInSectionSpacing', styles.stats)}>
 				{/* Stats */}
 				{Object.entries(aboutMe.stats as { [s: string]: string }).map(([text, number]) => (
 					<div key={text} className={styles.stat} data-aos="fade-in">
@@ -51,11 +70,22 @@ const About: FC = async () => {
 			<Quote image={image}>{aboutMe.quote}</Quote>
 
 			<Expertise
-				column1={aboutMe.concepting as Array<string>}
-				column2={aboutMe.design as Array<string>}
-				column3={aboutMe.development as Array<string>}
-				column4={aboutMe.management as Array<string>}
+				data={[
+					aboutMe.concepting as Array<string>,
+					aboutMe.design as Array<string>,
+					aboutMe.development as Array<string>,
+					aboutMe.management as Array<string>,
+				]}
 			/>
+
+			<Gallery>
+				<H>{aboutMe.heading}</H>
+				<p>{aboutMe.description}</p>
+
+				{aboutMe.photos.map(photo => (
+					<ImageHelper key={photo.id} data={photo} />
+				))}
+			</Gallery>
 		</main>
 	);
 };

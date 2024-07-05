@@ -1,5 +1,10 @@
 query Article($slug: String!) {
 	article(filter: {slug: {eq: $slug}}) {
+		_seoMetaTags {
+			attributes
+			content
+			tag
+		}
 		title
 		slug
 		content {
@@ -9,22 +14,7 @@ query Article($slug: String!) {
 			...Media
 		}
 		featureImage {
-			responsiveImage {
-				# Always required
-				src
-				srcSet
-				width
-				height
-
-				# Not required, but strongly suggested!
-				alt
-				title
-
-				# Blur-up placeholder, JPEG format, base64-encoded, or...
-				base64
-				# Background color placeholder
-				bgColor
-			}
+			...SRCImage
 		}
 	}
 }

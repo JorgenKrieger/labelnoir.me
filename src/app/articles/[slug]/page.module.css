@@ -1,12 +1,14 @@
 .article {
-	@apply lg:grid
+	@apply grid
+	gap-y-8
 	lg:grid-cols-3;
 }
 
 .toc {
 	@apply sticky
 	top-48
-	space-y-8;
+	space-y-4
+	lg:space-y-8;
 }
 
 .tocHeading {

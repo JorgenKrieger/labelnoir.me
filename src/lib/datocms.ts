@@ -7,12 +7,7 @@ type Variables = { [key: string]: unknown };
 interface RequestOptions {
 	query:
 		| string
-		| TypedDocumentString<
-				unknown,
-				Exact<{
-					[key: string]: never;
-				}>
-		  >
+		| TypedDocumentString<unknown, Exact<{ [key: string]: never }>>
 		| TypedDocumentString<unknown, { slug: string }>;
 	variables?: Variables;
 	includeDrafts?: boolean;

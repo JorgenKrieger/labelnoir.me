@@ -22,6 +22,13 @@
 		2xl:-mt-48;
 	}
 
+	.setInSectionSpacing {
+		@apply mt-16
+		lg:mt-24
+		xl:mt-32
+		2xl:mt-48;
+	}
+
 	.spaceInPage {
 		@apply flex
 		w-full
@@ -37,5 +44,12 @@
 		lg:-mt-32
 		xl:-mt-64
 		2xl:-mt-96;
+	}
+
+	.setInPageSpacing {
+		@apply mt-24
+		lg:mt-32
+		xl:mt-64
+		2xl:mt-96;
 	}
 }

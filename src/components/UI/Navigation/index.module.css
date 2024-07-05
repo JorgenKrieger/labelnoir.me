@@ -46,7 +46,7 @@
 }
 
 .link {
-	@apply text-p-small
+	@apply text-p
 	font-light
 	tracking-tight
 	text-noir-50;

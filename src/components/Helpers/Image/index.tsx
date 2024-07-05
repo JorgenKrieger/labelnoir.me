@@ -15,7 +15,7 @@ import styles from './index.module.css';
 type C = FC<SRCImagePropTypes & ImagePropTypes & { ssr?: boolean }>;
 
 // Main component
-const Image: C = ({ ssr = true, data, className, ...props }) => {
+const ImageHelper: C = ({ ssr = true, data, className, ...props }) => {
 	return (
 		<>
 			{ssr ? (
@@ -29,4 +29,4 @@ const Image: C = ({ ssr = true, data, className, ...props }) => {
 };
 
 // Exports
-export default Image;
+export default ImageHelper;

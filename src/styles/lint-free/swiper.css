@@ -1,0 +1,21 @@
+.swiper {
+	@apply container
+	flex
+	w-full
+	flex-col
+	items-stretch
+	!overflow-visible
+	!px-safe-offset-14;
+}
+
+.swiper-wrapper {
+	@apply justify-between;
+}
+
+.swiper-card {
+	width: calc(100vw - env(safe-area-inset-left) - env(safe-area-inset-right) - 7rem);
+
+	@screen md {
+		width: 430px;
+	}
+}

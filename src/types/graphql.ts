@@ -51,6 +51,7 @@ export type AboutMeRecord = RecordInterface & {
 	_status: ItemStatus | '%future added value';
 	_unpublishingScheduledAt?: Maybe<Scalars['DateTime']['output']>;
 	_updatedAt: Scalars['DateTime']['output'];
+	backgroundImage?: Maybe<ImageFileField>;
 	biography?: Maybe<AboutMeModelBiographyField>;
 	businessPhoto?: Maybe<ImageFileField>;
 	concepting?: Maybe<Scalars['JsonField']['output']>;
@@ -64,6 +65,7 @@ export type AboutMeRecord = RecordInterface & {
 	photos: Array<ImageFileField>;
 	profilePhoto?: Maybe<ImageFileField>;
 	quote?: Maybe<Scalars['String']['output']>;
+	seo?: Maybe<SeoField>;
 	stats?: Maybe<Scalars['JsonField']['output']>;
 	title?: Maybe<Scalars['String']['output']>;
 	updatedAt: Scalars['DateTime']['output'];
@@ -269,7 +271,6 @@ export type ArticleModelFilter = {
 	id?: InputMaybe<ItemIdFilter>;
 	slug?: InputMaybe<SlugFilter>;
 	sources?: InputMaybe<JsonFilter>;
-	tag?: InputMaybe<StringFilter>;
 	title?: InputMaybe<StringFilter>;
 	updatedAt?: InputMaybe<UpdatedAtFilter>;
 };
@@ -295,13 +296,41 @@ export enum ArticleModelOrderBy {
 	CreatedAtDesc = 'createdAt_DESC',
 	IdAsc = 'id_ASC',
 	IdDesc = 'id_DESC',
-	TagAsc = 'tag_ASC',
-	TagDesc = 'tag_DESC',
 	TitleAsc = 'title_ASC',
 	TitleDesc = 'title_DESC',
 	UpdatedAtAsc = 'updatedAt_ASC',
 	UpdatedAtDesc = 'updatedAt_DESC',
 }
+
+/** Record of type 🏷️ Article overview (article_overview) */
+export type ArticleOverviewRecord = RecordInterface & {
+	__typename?: 'ArticleOverviewRecord';
+	_createdAt: Scalars['DateTime']['output'];
+	/** Editing URL */
+	_editingUrl?: Maybe<Scalars['String']['output']>;
+	_firstPublishedAt?: Maybe<Scalars['DateTime']['output']>;
+	_isValid: Scalars['BooleanType']['output'];
+	_modelApiKey: Scalars['String']['output'];
+	_publicationScheduledAt?: Maybe<Scalars['DateTime']['output']>;
+	_publishedAt?: Maybe<Scalars['DateTime']['output']>;
+	/** Generates SEO and Social card meta tags to be used in your frontend */
+	_seoMetaTags: Array<Tag>;
+	_status: ItemStatus | '%future added value';
+	_unpublishingScheduledAt?: Maybe<Scalars['DateTime']['output']>;
+	_updatedAt: Scalars['DateTime']['output'];
+	backgroundImage?: Maybe<ImageFileField>;
+	createdAt: Scalars['DateTime']['output'];
+	id: Scalars['ItemId']['output'];
+	seo?: Maybe<SeoField>;
+	tagline?: Maybe<Scalars['String']['output']>;
+	title: Scalars['String']['output'];
+	updatedAt: Scalars['DateTime']['output'];
+};
+
+/** Record of type 🏷️ Article overview (article_overview) */
+export type ArticleOverviewRecord_SeoMetaTagsArgs = {
+	locale?: InputMaybe<SiteLocale>;
+};
 
 /** Record of type 📰 Article (article) */
 export type ArticleRecord = RecordInterface & {
@@ -325,11 +354,10 @@ export type ArticleRecord = RecordInterface & {
 	_updatedAt: Scalars['DateTime']['output'];
 	content: Array<ArticleModelContentField>;
 	createdAt: Scalars['DateTime']['output'];
-	featureImage?: Maybe<FileField>;
+	featureImage?: Maybe<ImageFileField>;
 	id: Scalars['ItemId']['output'];
 	slug: Scalars['String']['output'];
 	sources?: Maybe<Scalars['JsonField']['output']>;
-	tag?: Maybe<Scalars['String']['output']>;
 	title: Scalars['String']['output'];
 	updatedAt: Scalars['DateTime']['output'];
 };
@@ -901,7 +929,7 @@ export type GalleryRecord = RecordInterface & {
 	_status: ItemStatus | '%future added value';
 	_unpublishingScheduledAt?: Maybe<Scalars['DateTime']['output']>;
 	_updatedAt: Scalars['DateTime']['output'];
-	assets: Array<AltFileField>;
+	assets: Array<ImageFileField>;
 	createdAt: Scalars['DateTime']['output'];
 	galleryType?: Maybe<Scalars['String']['output']>;
 	id: Scalars['ItemId']['output'];
@@ -2776,7 +2804,7 @@ export type MediaItemRecord = RecordInterface & {
 	_status: ItemStatus | '%future added value';
 	_unpublishingScheduledAt?: Maybe<Scalars['DateTime']['output']>;
 	_updatedAt: Scalars['DateTime']['output'];
-	asset: AltFileField;
+	asset: ImageFileField;
 	createdAt: Scalars['DateTime']['output'];
 	id: Scalars['ItemId']['output'];
 	updatedAt: Scalars['DateTime']['output'];
@@ -2821,6 +2849,7 @@ export type ProjectModelFilter = {
 	outcome?: InputMaybe<TextFilter>;
 	quote?: InputMaybe<StringFilter>;
 	scope?: InputMaybe<JsonFilter>;
+	seo?: InputMaybe<SeoFilter>;
 	slug?: InputMaybe<SlugFilter>;
 	subtitle?: InputMaybe<StringFilter>;
 	title?: InputMaybe<StringFilter>;
@@ -2866,6 +2895,36 @@ export enum ProjectModelOrderBy {
 	YearDesc = 'year_DESC',
 }
 
+/** Record of type 🏷️ Project overview (project_overview) */
+export type ProjectOverviewRecord = RecordInterface & {
+	__typename?: 'ProjectOverviewRecord';
+	_createdAt: Scalars['DateTime']['output'];
+	/** Editing URL */
+	_editingUrl?: Maybe<Scalars['String']['output']>;
+	_firstPublishedAt?: Maybe<Scalars['DateTime']['output']>;
+	_isValid: Scalars['BooleanType']['output'];
+	_modelApiKey: Scalars['String']['output'];
+	_publicationScheduledAt?: Maybe<Scalars['DateTime']['output']>;
+	_publishedAt?: Maybe<Scalars['DateTime']['output']>;
+	/** Generates SEO and Social card meta tags to be used in your frontend */
+	_seoMetaTags: Array<Tag>;
+	_status: ItemStatus | '%future added value';
+	_unpublishingScheduledAt?: Maybe<Scalars['DateTime']['output']>;
+	_updatedAt: Scalars['DateTime']['output'];
+	backgroundImage?: Maybe<ImageFileField>;
+	createdAt: Scalars['DateTime']['output'];
+	id: Scalars['ItemId']['output'];
+	seo?: Maybe<SeoField>;
+	tagline?: Maybe<Scalars['String']['output']>;
+	title: Scalars['String']['output'];
+	updatedAt: Scalars['DateTime']['output'];
+};
+
+/** Record of type 🏷️ Project overview (project_overview) */
+export type ProjectOverviewRecord_SeoMetaTagsArgs = {
+	locale?: InputMaybe<SiteLocale>;
+};
+
 /** Record of type 💼 Project (project) */
 export type ProjectRecord = RecordInterface & {
 	__typename?: 'ProjectRecord';
@@ -2892,6 +2951,7 @@ export type ProjectRecord = RecordInterface & {
 	pageBuilder: Array<SectionRecord>;
 	quote?: Maybe<Scalars['String']['output']>;
 	scope?: Maybe<Scalars['JsonField']['output']>;
+	seo?: Maybe<SeoField>;
 	slug: Scalars['String']['output'];
 	subtitle?: Maybe<Scalars['String']['output']>;
 	title: Scalars['String']['output'];
@@ -2960,12 +3020,16 @@ export type Query = {
 	allUploads: Array<FileField>;
 	/** Returns a specific record */
 	article?: Maybe<ArticleRecord>;
+	/** Returns the single instance record */
+	articleOverview?: Maybe<ArticleOverviewRecord>;
 	/** Returns a specific record */
 	case?: Maybe<CaseRecord>;
 	/** Returns the single instance record */
 	home?: Maybe<HomeRecord>;
 	/** Returns a specific record */
 	project?: Maybe<ProjectRecord>;
+	/** Returns the single instance record */
+	projectOverview?: Maybe<ProjectOverviewRecord>;
 	/** Returns a specific asset */
 	upload?: Maybe<FileField>;
 };
@@ -3064,6 +3128,12 @@ export type QueryArticleArgs = {
 };
 
 /** The query root for this schema */
+export type QueryArticleOverviewArgs = {
+	fallbackLocales?: InputMaybe<Array<SiteLocale>>;
+	locale?: InputMaybe<SiteLocale>;
+};
+
+/** The query root for this schema */
 export type QueryCaseArgs = {
 	fallbackLocales?: InputMaybe<Array<SiteLocale>>;
 	filter?: InputMaybe<CaseModelFilter>;
@@ -3083,6 +3153,12 @@ export type QueryProjectArgs = {
 	filter?: InputMaybe<ProjectModelFilter>;
 	locale?: InputMaybe<SiteLocale>;
 	orderBy?: InputMaybe<Array<InputMaybe<ProjectModelOrderBy>>>;
+};
+
+/** The query root for this schema */
+export type QueryProjectOverviewArgs = {
+	fallbackLocales?: InputMaybe<Array<SiteLocale>>;
+	locale?: InputMaybe<SiteLocale>;
 };
 
 /** The query root for this schema */
@@ -3794,6 +3870,40 @@ export type AboutMeQuery = {
 		design?: unknown | null;
 		development?: unknown | null;
 		management?: unknown | null;
+		heading?: string | null;
+		description?: string | null;
+		_seoMetaTags: Array<{
+			__typename?: 'Tag';
+			attributes?: Record<string, string> | null;
+			content?: string | null;
+			tag: string;
+		}>;
+		backgroundImage?: {
+			__typename?: 'ImageFileField';
+			responsiveImage: {
+				__typename?: 'ResponsiveImage';
+				src: string;
+				srcSet: string;
+				width: number;
+				height: number;
+				alt?: string | null;
+				title?: string | null;
+				base64?: string | null;
+				bgColor?: string | null;
+			};
+		} | null;
+		businessPhoto?: {
+			__typename?: 'ImageFileField';
+			responsiveImage: {
+				__typename?: 'ResponsiveImage';
+				src: string;
+				srcSet: string;
+				width: number;
+				height: number;
+				alt?: string | null;
+				sizes: string;
+			};
+		} | null;
 		profilePhoto?: {
 			__typename?: 'ImageFileField';
 			responsiveImage: {
@@ -3807,6 +3917,18 @@ export type AboutMeQuery = {
 			};
 		} | null;
 		biography?: { __typename?: 'AboutMeModelBiographyField'; value: unknown } | null;
+		photos: Array<{
+			__typename?: 'ImageFileField';
+			responsiveImage: {
+				__typename?: 'ResponsiveImage';
+				src: string;
+				srcSet: string;
+				width: number;
+				height: number;
+				alt?: string | null;
+				sizes: string;
+			};
+		}>;
 	} | null;
 };
 
@@ -3818,7 +3940,6 @@ export type AllArticlesQuery = {
 		__typename?: 'ArticleRecord';
 		_createdAt: string;
 		title: string;
-		tag?: string | null;
 		slug: string;
 	}>;
 };
@@ -3859,6 +3980,12 @@ export type ArticleQuery = {
 		__typename?: 'ArticleRecord';
 		title: string;
 		slug: string;
+		_seoMetaTags: Array<{
+			__typename?: 'Tag';
+			attributes?: Record<string, string> | null;
+			content?: string | null;
+			tag: string;
+		}>;
 		content: Array<
 			| {
 					__typename?: 'CodeRecord';
@@ -3873,8 +4000,8 @@ export type ArticleQuery = {
 					_modelApiKey: string;
 					id: string;
 					asset: {
-						__typename?: 'AltFileField';
-						responsiveImage?: {
+						__typename?: 'ImageFileField';
+						responsiveImage: {
 							__typename?: 'ResponsiveImage';
 							src: string;
 							srcSet: string;
@@ -3884,7 +4011,7 @@ export type ArticleQuery = {
 							title?: string | null;
 							base64?: string | null;
 							bgColor?: string | null;
-						} | null;
+						};
 					};
 			  }
 			| { __typename?: 'QuoteRecord'; _modelApiKey: string; id: string; blockquote: string }
@@ -3898,8 +4025,8 @@ export type ArticleQuery = {
 			  }
 		>;
 		featureImage?: {
-			__typename?: 'FileField';
-			responsiveImage?: {
+			__typename?: 'ImageFileField';
+			responsiveImage: {
 				__typename?: 'ResponsiveImage';
 				src: string;
 				srcSet: string;
@@ -3909,8 +4036,39 @@ export type ArticleQuery = {
 				title?: string | null;
 				base64?: string | null;
 				bgColor?: string | null;
-			} | null;
+			};
 		} | null;
+	} | null;
+};
+
+export type ArticleOverviewQueryVariables = Exact<{ [key: string]: never }>;
+
+export type ArticleOverviewQuery = {
+	__typename?: 'Query';
+	articleOverview?: {
+		__typename?: 'ArticleOverviewRecord';
+		title: string;
+		tagline?: string | null;
+		backgroundImage?: {
+			__typename?: 'ImageFileField';
+			responsiveImage: {
+				__typename?: 'ResponsiveImage';
+				src: string;
+				srcSet: string;
+				width: number;
+				height: number;
+				alt?: string | null;
+				title?: string | null;
+				base64?: string | null;
+				bgColor?: string | null;
+			};
+		} | null;
+		_seoMetaTags: Array<{
+			__typename?: 'Tag';
+			attributes?: Record<string, string> | null;
+			tag: string;
+			content?: string | null;
+		}>;
 	} | null;
 };
 
@@ -3923,7 +4081,33 @@ export type HomeQuery = {
 		title: string;
 		clientHeading?: string | null;
 		clients?: unknown | null;
+		seo: Array<{
+			__typename?: 'Tag';
+			attributes?: Record<string, string> | null;
+			content?: string | null;
+			tag: string;
+		}>;
 		introduction?: { __typename?: 'HomeModelIntroductionField'; value: unknown } | null;
+		featuredProjects: Array<{
+			__typename?: 'ProjectRecord';
+			title: string;
+			subtitle?: string | null;
+			slug: string;
+			featuredImage?: {
+				__typename?: 'ImageFileField';
+				responsiveImage: {
+					__typename?: 'ResponsiveImage';
+					src: string;
+					srcSet: string;
+					width: number;
+					height: number;
+					alt?: string | null;
+					title?: string | null;
+					base64?: string | null;
+					bgColor?: string | null;
+				};
+			} | null;
+		}>;
 	} | null;
 };
 
@@ -3944,6 +4128,12 @@ export type ProjectQuery = {
 		year?: number | null;
 		scope?: unknown | null;
 		websiteUrl?: string | null;
+		seo: Array<{
+			__typename?: 'Tag';
+			attributes?: Record<string, string> | null;
+			content?: string | null;
+			tag: string;
+		}>;
 		featuredImage?: {
 			__typename?: 'ImageFileField';
 			responsiveImage: {
@@ -3968,8 +4158,8 @@ export type ProjectQuery = {
 						id: string;
 						galleryType?: string | null;
 						assets: Array<{
-							__typename?: 'AltFileField';
-							responsiveImage?: {
+							__typename?: 'ImageFileField';
+							responsiveImage: {
 								__typename?: 'ResponsiveImage';
 								src: string;
 								srcSet: string;
@@ -3979,7 +4169,7 @@ export type ProjectQuery = {
 								title?: string | null;
 								base64?: string | null;
 								bgColor?: string | null;
-							} | null;
+							};
 						}>;
 				  }
 				| {
@@ -3987,8 +4177,8 @@ export type ProjectQuery = {
 						_modelApiKey: string;
 						id: string;
 						asset: {
-							__typename?: 'AltFileField';
-							responsiveImage?: {
+							__typename?: 'ImageFileField';
+							responsiveImage: {
 								__typename?: 'ResponsiveImage';
 								src: string;
 								srcSet: string;
@@ -3998,7 +4188,7 @@ export type ProjectQuery = {
 								title?: string | null;
 								base64?: string | null;
 								bgColor?: string | null;
-							} | null;
+							};
 						};
 				  }
 				| {
@@ -4016,6 +4206,37 @@ export type ProjectQuery = {
 						content: { __typename?: 'TextModelContentField'; value: unknown };
 				  }
 			>;
+		}>;
+	} | null;
+};
+
+export type ProjectOverviewQueryVariables = Exact<{ [key: string]: never }>;
+
+export type ProjectOverviewQuery = {
+	__typename?: 'Query';
+	projectOverview?: {
+		__typename?: 'ProjectOverviewRecord';
+		title: string;
+		tagline?: string | null;
+		backgroundImage?: {
+			__typename?: 'ImageFileField';
+			responsiveImage: {
+				__typename?: 'ResponsiveImage';
+				src: string;
+				srcSet: string;
+				width: number;
+				height: number;
+				alt?: string | null;
+				title?: string | null;
+				base64?: string | null;
+				bgColor?: string | null;
+			};
+		} | null;
+		_seoMetaTags: Array<{
+			__typename?: 'Tag';
+			attributes?: Record<string, string> | null;
+			tag: string;
+			content?: string | null;
 		}>;
 	} | null;
 };
@@ -4059,8 +4280,8 @@ export type MediaFragment = {
 	_modelApiKey: string;
 	id: string;
 	asset: {
-		__typename?: 'AltFileField';
-		responsiveImage?: {
+		__typename?: 'ImageFileField';
+		responsiveImage: {
 			__typename?: 'ResponsiveImage';
 			src: string;
 			srcSet: string;
@@ -4070,7 +4291,7 @@ export type MediaFragment = {
 			title?: string | null;
 			base64?: string | null;
 			bgColor?: string | null;
-		} | null;
+		};
 	};
 };
 
@@ -4080,8 +4301,8 @@ export type GalleryFragment = {
 	id: string;
 	galleryType?: string | null;
 	assets: Array<{
-		__typename?: 'AltFileField';
-		responsiveImage?: {
+		__typename?: 'ImageFileField';
+		responsiveImage: {
 			__typename?: 'ResponsiveImage';
 			src: string;
 			srcSet: string;
@@ -4091,27 +4312,59 @@ export type GalleryFragment = {
 			title?: string | null;
 			base64?: string | null;
 			bgColor?: string | null;
-		} | null;
+		};
 	}>;
 };
 
-export type ResponsiveImageFragment = {
-	__typename?: 'MediaItemRecord';
-	asset: {
-		__typename?: 'AltFileField';
-		responsiveImage?: {
-			__typename?: 'ResponsiveImage';
-			src: string;
-			srcSet: string;
-			width: number;
-			height: number;
-			alt?: string | null;
-			title?: string | null;
-			base64?: string | null;
-			bgColor?: string | null;
-		} | null;
+type SrcImage_AltFileField_Fragment = {
+	__typename?: 'AltFileField';
+	responsiveImage?: {
+		__typename?: 'ResponsiveImage';
+		src: string;
+		srcSet: string;
+		width: number;
+		height: number;
+		alt?: string | null;
+		title?: string | null;
+		base64?: string | null;
+		bgColor?: string | null;
+	} | null;
+};
+
+type SrcImage_FileField_Fragment = {
+	__typename?: 'FileField';
+	responsiveImage?: {
+		__typename?: 'ResponsiveImage';
+		src: string;
+		srcSet: string;
+		width: number;
+		height: number;
+		alt?: string | null;
+		title?: string | null;
+		base64?: string | null;
+		bgColor?: string | null;
+	} | null;
+};
+
+type SrcImage_ImageFileField_Fragment = {
+	__typename?: 'ImageFileField';
+	responsiveImage: {
+		__typename?: 'ResponsiveImage';
+		src: string;
+		srcSet: string;
+		width: number;
+		height: number;
+		alt?: string | null;
+		title?: string | null;
+		base64?: string | null;
+		bgColor?: string | null;
 	};
 };
+
+export type SrcImageFragment =
+	| SrcImage_AltFileField_Fragment
+	| SrcImage_FileField_Fragment
+	| SrcImage_ImageFileField_Fragment;
 
 export class TypedDocumentString<TResult, TVariables>
 	extends String
@@ -4171,46 +4424,44 @@ export const QuoteFragmentDoc = new TypedDocumentString(
     `,
 	{ fragmentName: 'Quote' }
 ) as unknown as TypedDocumentString<QuoteFragment, unknown>;
-export const ResponsiveImageFragmentDoc = new TypedDocumentString(
+export const SrcImageFragmentDoc = new TypedDocumentString(
 	`
-    fragment ResponsiveImage on MediaItemRecord {
-  asset {
-    responsiveImage {
-      src
-      srcSet
-      width
-      height
-      alt
-      title
-      base64
-      bgColor
-    }
+    fragment SRCImage on FileFieldInterface {
+  responsiveImage(imgixParams: {fm: webp}) {
+    src
+    srcSet
+    width
+    height
+    alt
+    title
+    base64
+    bgColor
   }
 }
     `,
-	{ fragmentName: 'ResponsiveImage' }
-) as unknown as TypedDocumentString<ResponsiveImageFragment, unknown>;
+	{ fragmentName: 'SRCImage' }
+) as unknown as TypedDocumentString<SrcImageFragment, unknown>;
 export const MediaFragmentDoc = new TypedDocumentString(
 	`
     fragment Media on MediaItemRecord {
   ... on MediaItemRecord {
     _modelApiKey
     id
-    ...ResponsiveImage
+    asset {
+      ...SRCImage
+    }
   }
 }
-    fragment ResponsiveImage on MediaItemRecord {
-  asset {
-    responsiveImage {
-      src
-      srcSet
-      width
-      height
-      alt
-      title
-      base64
-      bgColor
-    }
+    fragment SRCImage on FileFieldInterface {
+  responsiveImage(imgixParams: {fm: webp}) {
+    src
+    srcSet
+    width
+    height
+    alt
+    title
+    base64
+    bgColor
   }
 }`,
 	{ fragmentName: 'Media' }
@@ -4223,26 +4474,46 @@ export const GalleryFragmentDoc = new TypedDocumentString(
     id
     galleryType
     assets {
-      responsiveImage {
-        src
-        srcSet
-        width
-        height
-        alt
-        title
-        base64
-        bgColor
-      }
+      ...SRCImage
     }
   }
 }
-    `,
+    fragment SRCImage on FileFieldInterface {
+  responsiveImage(imgixParams: {fm: webp}) {
+    src
+    srcSet
+    width
+    height
+    alt
+    title
+    base64
+    bgColor
+  }
+}`,
 	{ fragmentName: 'Gallery' }
 ) as unknown as TypedDocumentString<GalleryFragment, unknown>;
 export const AboutMeDocument = new TypedDocumentString(`
     query AboutMe {
   aboutMe {
+    _seoMetaTags {
+      attributes
+      content
+      tag
+    }
+    backgroundImage {
+      ...SRCImage
+    }
     stats
+    businessPhoto {
+      responsiveImage(imgixParams: {fm: webp, w: "768"}) {
+        src
+        srcSet
+        width
+        height
+        alt
+        sizes
+      }
+    }
     profilePhoto {
       responsiveImage(
         imgixParams: {fm: webp, h: "600", w: "600", fit: facearea, crop: focalpoint, facepad: "5"}
@@ -4263,15 +4534,37 @@ export const AboutMeDocument = new TypedDocumentString(`
     design
     development
     management
+    heading
+    description
+    photos {
+      responsiveImage(imgixParams: {fm: webp, w: "768"}) {
+        src
+        srcSet
+        width
+        height
+        alt
+        sizes
+      }
+    }
   }
 }
-    `) as unknown as TypedDocumentString<AboutMeQuery, AboutMeQueryVariables>;
+    fragment SRCImage on FileFieldInterface {
+  responsiveImage(imgixParams: {fm: webp}) {
+    src
+    srcSet
+    width
+    height
+    alt
+    title
+    base64
+    bgColor
+  }
+}`) as unknown as TypedDocumentString<AboutMeQuery, AboutMeQueryVariables>;
 export const AllArticlesDocument = new TypedDocumentString(`
     query AllArticles {
   allArticles {
     _createdAt
     title
-    tag
     slug
   }
 }
@@ -4283,23 +4576,30 @@ export const AllProjectsDocument = new TypedDocumentString(`
     subtitle
     slug
     featuredImage {
-      responsiveImage {
-        src
-        srcSet
-        width
-        height
-        alt
-        title
-        base64
-        bgColor
-      }
+      ...SRCImage
     }
   }
 }
-    `) as unknown as TypedDocumentString<AllProjectsQuery, AllProjectsQueryVariables>;
+    fragment SRCImage on FileFieldInterface {
+  responsiveImage(imgixParams: {fm: webp}) {
+    src
+    srcSet
+    width
+    height
+    alt
+    title
+    base64
+    bgColor
+  }
+}`) as unknown as TypedDocumentString<AllProjectsQuery, AllProjectsQueryVariables>;
 export const ArticleDocument = new TypedDocumentString(`
     query Article($slug: String!) {
   article(filter: {slug: {eq: $slug}}) {
+    _seoMetaTags {
+      attributes
+      content
+      tag
+    }
     title
     slug
     content {
@@ -4309,16 +4609,7 @@ export const ArticleDocument = new TypedDocumentString(`
       ...Media
     }
     featureImage {
-      responsiveImage {
-        src
-        srcSet
-        width
-        height
-        alt
-        title
-        base64
-        bgColor
-      }
+      ...SRCImage
     }
   }
 }
@@ -4352,38 +4643,94 @@ fragment Media on MediaItemRecord {
   ... on MediaItemRecord {
     _modelApiKey
     id
-    ...ResponsiveImage
-  }
-}
-fragment ResponsiveImage on MediaItemRecord {
-  asset {
-    responsiveImage {
-      src
-      srcSet
-      width
-      height
-      alt
-      title
-      base64
-      bgColor
+    asset {
+      ...SRCImage
     }
   }
+}
+fragment SRCImage on FileFieldInterface {
+  responsiveImage(imgixParams: {fm: webp}) {
+    src
+    srcSet
+    width
+    height
+    alt
+    title
+    base64
+    bgColor
+  }
 }`) as unknown as TypedDocumentString<ArticleQuery, ArticleQueryVariables>;
+export const ArticleOverviewDocument = new TypedDocumentString(`
+    query ArticleOverview {
+  articleOverview {
+    title
+    tagline
+    backgroundImage {
+      ...SRCImage
+    }
+    _seoMetaTags {
+      attributes
+      tag
+      content
+    }
+  }
+}
+    fragment SRCImage on FileFieldInterface {
+  responsiveImage(imgixParams: {fm: webp}) {
+    src
+    srcSet
+    width
+    height
+    alt
+    title
+    base64
+    bgColor
+  }
+}`) as unknown as TypedDocumentString<ArticleOverviewQuery, ArticleOverviewQueryVariables>;
 export const HomeDocument = new TypedDocumentString(`
     query Home {
   home {
+    seo: _seoMetaTags {
+      attributes
+      content
+      tag
+    }
     title
     introduction {
       value
+    }
+    featuredProjects {
+      title
+      subtitle
+      slug
+      featuredImage {
+        ...SRCImage
+      }
     }
     clientHeading
     clients
   }
 }
-    `) as unknown as TypedDocumentString<HomeQuery, HomeQueryVariables>;
+    fragment SRCImage on FileFieldInterface {
+  responsiveImage(imgixParams: {fm: webp}) {
+    src
+    srcSet
+    width
+    height
+    alt
+    title
+    base64
+    bgColor
+  }
+}`) as unknown as TypedDocumentString<HomeQuery, HomeQueryVariables>;
 export const ProjectDocument = new TypedDocumentString(`
     query Project($slug: String!) {
   project(filter: {slug: {eq: $slug}}) {
+    seo: _seoMetaTags {
+      attributes
+      content
+      tag
+    }
     title
     subtitle
     challenge
@@ -4394,16 +4741,7 @@ export const ProjectDocument = new TypedDocumentString(`
     scope
     websiteUrl
     featuredImage {
-      responsiveImage {
-        src
-        srcSet
-        width
-        height
-        alt
-        title
-        base64
-        bgColor
-      }
+      ...SRCImage
     }
     pageBuilder {
       id
@@ -4438,7 +4776,9 @@ fragment Media on MediaItemRecord {
   ... on MediaItemRecord {
     _modelApiKey
     id
-    ...ResponsiveImage
+    asset {
+      ...SRCImage
+    }
   }
 }
 fragment Gallery on GalleryRecord {
@@ -4447,33 +4787,49 @@ fragment Gallery on GalleryRecord {
     id
     galleryType
     assets {
-      responsiveImage {
-        src
-        srcSet
-        width
-        height
-        alt
-        title
-        base64
-        bgColor
-      }
+      ...SRCImage
     }
   }
 }
-fragment ResponsiveImage on MediaItemRecord {
-  asset {
-    responsiveImage {
-      src
-      srcSet
-      width
-      height
-      alt
-      title
-      base64
-      bgColor
-    }
+fragment SRCImage on FileFieldInterface {
+  responsiveImage(imgixParams: {fm: webp}) {
+    src
+    srcSet
+    width
+    height
+    alt
+    title
+    base64
+    bgColor
   }
 }`) as unknown as TypedDocumentString<ProjectQuery, ProjectQueryVariables>;
+export const ProjectOverviewDocument = new TypedDocumentString(`
+    query ProjectOverview {
+  projectOverview {
+    title
+    tagline
+    backgroundImage {
+      ...SRCImage
+    }
+    _seoMetaTags {
+      attributes
+      tag
+      content
+    }
+  }
+}
+    fragment SRCImage on FileFieldInterface {
+  responsiveImage(imgixParams: {fm: webp}) {
+    src
+    srcSet
+    width
+    height
+    alt
+    title
+    base64
+    bgColor
+  }
+}`) as unknown as TypedDocumentString<ProjectOverviewQuery, ProjectOverviewQueryVariables>;
 export const SitemapDocument = new TypedDocumentString(`
     query Sitemap {
   home {

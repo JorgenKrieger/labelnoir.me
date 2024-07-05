@@ -28,7 +28,7 @@ import { renderNodeRule, StructuredText, type StructuredTextDocument } from 'rea
 
 import type { TextModelContentField } from '@/types/graphql';
 import Quote from 'Content/Quote';
-import Code from 'Helpers/Code';
+import CodeHelper from 'Helpers/Code';
 
 import styles from './index.module.css';
 
@@ -48,7 +48,7 @@ const HeadingTag: FC<
 };
 
 // Main component
-const Text: C = ({ data }) => {
+const TextHelper: C = ({ data }) => {
 	return (
 		<StructuredText
 			data={data as unknown as StructuredTextDocument}
@@ -72,9 +72,9 @@ const Text: C = ({ data }) => {
 					);
 				}),
 				renderNodeRule(isCode, ({ node, key }) => (
-					<Code key={key} language={node.language}>
+					<CodeHelper key={key} language={node.language}>
 						{node.code}
-					</Code>
+					</CodeHelper>
 				)),
 				renderNodeRule(
 					isParagraph,
@@ -125,4 +125,4 @@ const Text: C = ({ data }) => {
 };
 
 // Exports
-export default Text;
+export default TextHelper;

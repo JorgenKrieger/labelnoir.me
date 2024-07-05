@@ -1,5 +1,10 @@
 query Project($slug: String!) {
 	project(filter: {slug: {eq: $slug}}) {
+		seo: _seoMetaTags {
+			attributes
+			content
+			tag
+		}
 		title
 		subtitle
 		challenge
@@ -10,22 +15,7 @@ query Project($slug: String!) {
 		scope
 		websiteUrl
 		featuredImage {
-			responsiveImage {
-				# Always required
-				src
-				srcSet
-				width
-				height
-
-				# Not required, but strongly suggested!
-				alt
-				title
-
-				# Blur-up placeholder, JPEG format, base64-encoded, or...
-				base64
-				# Background color placeholder
-				bgColor
-			}
+			...SRCImage
 		}
 		pageBuilder {
 			id

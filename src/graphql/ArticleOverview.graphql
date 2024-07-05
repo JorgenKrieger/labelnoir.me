@@ -1,0 +1,14 @@
+query ArticleOverview {
+	articleOverview {
+		title
+		tagline
+		backgroundImage {
+			...SRCImage
+		}
+		_seoMetaTags {
+			attributes
+			tag
+			content
+		}
+	}
+}

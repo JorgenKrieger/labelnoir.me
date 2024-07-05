@@ -19,7 +19,7 @@ type C = FC<
 >;
 
 // Main component
-const Code: C = ({ language, children }) => {
+const CodeHelper: C = ({ language, children }) => {
 	return (
 		<SyntaxHighlighter
 			language={language}
@@ -33,4 +33,4 @@ const Code: C = ({ language, children }) => {
 };
 
 // Exports
-export default Code;
+export default CodeHelper;

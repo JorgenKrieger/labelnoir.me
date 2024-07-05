@@ -1,8 +1,21 @@
 query Home {
 	home {
+		seo: _seoMetaTags {
+			attributes
+			content
+			tag
+		}
 		title
 		introduction {
 			value
+		}
+		featuredProjects {
+			title
+			subtitle
+			slug
+			featuredImage {
+				...SRCImage
+			}
 		}
 		clientHeading
 		clients

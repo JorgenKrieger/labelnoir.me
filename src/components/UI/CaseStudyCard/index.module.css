@@ -1,8 +1,20 @@
+.container {
+	container-name: card;
+	container-type: inline-size;
+}
+
 .case {
 	@apply grid
-	items-baseline
-	md:grid-cols-2
-	lg:grid-cols-12;
+	w-full
+	items-baseline;
+
+	@container card (min-width: 656px) {
+		@apply grid-cols-2;
+	}
+
+	@container card (min-width: 1168px) {
+		@apply grid-cols-12;
+	}
 }
 
 .imageLink {
@@ -10,11 +22,20 @@
 	col-span-full
 	mb-6
 	h-96
-	overflow-clip
-	xl:mb-8
-	md:landscape:h-72
-	lg:landscape:h-96
-	xl:landscape:h-[40rem];
+	overflow-clip;
+
+	@container card (min-width: 656px) {
+		@apply landscape:h-72;
+	}
+
+	@container card (min-width: 912px) {
+		@apply landscape:h-96;
+	}
+
+	@container card (min-width: 1168px) {
+		@apply mb-8
+		landscape:h-[40rem];
+	}
 
 	picture,
 	img {
@@ -36,27 +57,39 @@
 	font-semibold
 	leading-tight
 	tracking-tighter
-	text-noir-50
-	lg:col-span-5;
+	text-noir-50;
+
+	@container card (min-width: 1168px) {
+		@apply col-span-5;
+	}
 }
 
 .description {
 	@apply mt-2
 	text-p-small
 	leading-normal
-	md:mt-0
-	lg:col-span-5;
+	md:mt-0;
+
+	@container card (min-width: 1168px) {
+		@apply col-span-5;
+	}
 }
 
 .link {
 	@apply mt-3
 	text-p-small
 	font-semibold
-	text-noir-50
-	md:col-start-2
-	lg:col-span-2
-	lg:mt-0
-	lg:justify-self-end;
+	text-noir-50;
+
+	@container card (min-width: 656px) {
+		@apply col-start-2;
+	}
+
+	@container card (min-width: 1168px) {
+		@apply col-span-2
+		mt-0
+		justify-self-end;
+	}
 
 	&::after {
 		@apply ml-2

@@ -2,6 +2,8 @@
 import classNames from 'classnames';
 import { notFound } from 'next/navigation';
 import type { FC } from 'react';
+import type { SeoOrFaviconTag } from 'react-datocms';
+import { toNextMetadata } from 'react-datocms';
 
 import { Section } from '@/components/Abstracts/headings';
 import { performRequest } from '@/lib/datocms';
@@ -14,16 +16,21 @@ import TableOfContent from 'UI/TableOfContent';
 import styles from './page.module.css';
 
 // Types
-type TArticle = FC<{
+type C = FC<{
 	params: {
 		slug: string;
 	};
 }>;
 
-// Disable dynamic pages
+/**
+ * Static Site Generation
+ * ---
+ * - Disable dynamic pages
+ *
+ * - Generate static pages
+ */
 export const dynamicParams = false;
 
-// Generate static pages
 export const generateStaticParams = async () => {
 	const {
 		allArticles,
@@ -36,12 +43,29 @@ export const generateStaticParams = async () => {
 	}));
 };
 
-// Page component
-const Article: TArticle = async ({ params: { slug } }) => {
+/**
+ * Page functionality
+ * ---
+ */
+// GraphQL fetcher
+const fetchData = async (slug: string) => {
 	const { article }: { article: ArticleRecord } = await performRequest({
 		query: ArticleDocument,
 		variables: { slug: slug },
 	});
+
+	return article;
+};
+
+// Meta data
+export const generateMetadata = async ({ params: { slug } }: { params: { slug: string } }) => {
+	const article = await fetchData(slug);
+	return toNextMetadata([...(article._seoMetaTags as Array<SeoOrFaviconTag>)] || []);
+};
+
+// Page component
+const Article: C = async ({ params: { slug } }) => {
+	const article = await fetchData(slug);
 
 	if (!article) {
 		notFound();
