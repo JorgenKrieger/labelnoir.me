@@ -13,7 +13,7 @@ query Sitemap {
 		_updatedAt
 	}
 
-	about {
+	aboutMe {
 		_updatedAt
 	}
 }

@@ -3,7 +3,7 @@ import type { MetadataRoute } from 'next';
 
 import { BASE_URL } from '@/lib/constants';
 import { performRequest } from '@/lib/datocms';
-import type { ArticleRecord, ProjectRecord, HomeRecord, AboutRecord } from '@/types/graphql';
+import type { ArticleRecord, ProjectRecord, HomeRecord, AboutMeRecord } from '@/types/graphql';
 import { SitemapDocument } from '@/types/graphql';
 
 // Types
@@ -27,12 +27,12 @@ const sitemap = async (): Promise<MetadataRoute.Sitemap> => {
 		home,
 		allArticles,
 		allProjects,
-		about,
+		aboutMe,
 	}: {
 		home: HomeRecord;
 		allArticles: Array<ArticleRecord>;
 		allProjects: Array<ProjectRecord>;
-		about: AboutRecord;
+		aboutMe: AboutMeRecord;
 	} = await performRequest({ query: SitemapDocument });
 
 	const sitemapArray: S = [];
@@ -47,7 +47,7 @@ const sitemap = async (): Promise<MetadataRoute.Sitemap> => {
 	// About
 	sitemapArray.push({
 		url: `${BASE_URL}/about`,
-		lastModified: about._updatedAt,
+		lastModified: aboutMe._updatedAt,
 		changeFrequency: 'yearly',
 	});
 

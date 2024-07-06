@@ -76,68 +76,6 @@ export type AboutMeRecord_SeoMetaTagsArgs = {
 	locale?: InputMaybe<SiteLocale>;
 };
 
-export type AboutModelFrustrationsField = {
-	__typename?: 'AboutModelFrustrationsField';
-	blocks: Array<Scalars['String']['output']>;
-	links: Array<Scalars['String']['output']>;
-	value: Scalars['JsonField']['output'];
-};
-
-export type AboutModelGoalsField = {
-	__typename?: 'AboutModelGoalsField';
-	blocks: Array<Scalars['String']['output']>;
-	links: Array<Scalars['String']['output']>;
-	value: Scalars['JsonField']['output'];
-};
-
-export type AboutModelProfileTextField = {
-	__typename?: 'AboutModelProfileTextField';
-	blocks: Array<Scalars['String']['output']>;
-	links: Array<Scalars['String']['output']>;
-	value: Scalars['JsonField']['output'];
-};
-
-/** Record of type About (about) */
-export type AboutRecord = RecordInterface & {
-	__typename?: 'AboutRecord';
-	_createdAt: Scalars['DateTime']['output'];
-	/** Editing URL */
-	_editingUrl?: Maybe<Scalars['String']['output']>;
-	_firstPublishedAt?: Maybe<Scalars['DateTime']['output']>;
-	_isValid: Scalars['BooleanType']['output'];
-	_modelApiKey: Scalars['String']['output'];
-	_publicationScheduledAt?: Maybe<Scalars['DateTime']['output']>;
-	_publishedAt?: Maybe<Scalars['DateTime']['output']>;
-	/** Generates SEO and Social card meta tags to be used in your frontend */
-	_seoMetaTags: Array<Tag>;
-	_status: ItemStatus | '%future added value';
-	_unpublishingScheduledAt?: Maybe<Scalars['DateTime']['output']>;
-	_updatedAt: Scalars['DateTime']['output'];
-	agencies: Array<AgencyRecord>;
-	archetype?: Maybe<Scalars['String']['output']>;
-	createdAt: Scalars['DateTime']['output'];
-	frustrations?: Maybe<AboutModelFrustrationsField>;
-	goals?: Maybe<AboutModelGoalsField>;
-	id: Scalars['ItemId']['output'];
-	location?: Maybe<Scalars['String']['output']>;
-	motivation?: Maybe<Scalars['JsonField']['output']>;
-	occupation?: Maybe<Scalars['String']['output']>;
-	personaPhoto?: Maybe<FileField>;
-	personality?: Maybe<Scalars['JsonField']['output']>;
-	profilePhoto?: Maybe<FileField>;
-	profileText?: Maybe<AboutModelProfileTextField>;
-	profileTitle?: Maybe<Scalars['String']['output']>;
-	relationStatus?: Maybe<Scalars['String']['output']>;
-	seo?: Maybe<SeoField>;
-	studies: Array<EducationRecord>;
-	updatedAt: Scalars['DateTime']['output'];
-};
-
-/** Record of type About (about) */
-export type AboutRecord_SeoMetaTagsArgs = {
-	locale?: InputMaybe<SiteLocale>;
-};
-
 /** Block of type Agency (agency) */
 export type AgencyRecord = RecordInterface & {
 	__typename?: 'AgencyRecord';
@@ -3007,8 +2945,6 @@ export type Query = {
 	/** Returns the single instance record */
 	_site: Site;
 	/** Returns the single instance record */
-	about?: Maybe<AboutRecord>;
-	/** Returns the single instance record */
 	aboutMe?: Maybe<AboutMeRecord>;
 	/** Returns a collection of records */
 	allArticles: Array<ArticleRecord>;
@@ -3063,12 +2999,6 @@ export type Query_AllUploadsMetaArgs = {
 
 /** The query root for this schema */
 export type Query_SiteArgs = {
-	fallbackLocales?: InputMaybe<Array<SiteLocale>>;
-	locale?: InputMaybe<SiteLocale>;
-};
-
-/** The query root for this schema */
-export type QueryAboutArgs = {
 	fallbackLocales?: InputMaybe<Array<SiteLocale>>;
 	locale?: InputMaybe<SiteLocale>;
 };
@@ -4248,7 +4178,7 @@ export type SitemapQuery = {
 	home?: { __typename?: 'HomeRecord'; _updatedAt: string } | null;
 	allArticles: Array<{ __typename?: 'ArticleRecord'; slug: string; _updatedAt: string }>;
 	allProjects: Array<{ __typename?: 'ProjectRecord'; slug: string; _updatedAt: string }>;
-	about?: { __typename?: 'AboutRecord'; _updatedAt: string } | null;
+	aboutMe?: { __typename?: 'AboutMeRecord'; _updatedAt: string } | null;
 };
 
 export type CodeFragment = {
@@ -4843,7 +4773,7 @@ export const SitemapDocument = new TypedDocumentString(`
     slug
     _updatedAt
   }
-  about {
+  aboutMe {
     _updatedAt
   }
 }
