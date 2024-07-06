@@ -12,12 +12,24 @@ import type { ImagePropTypes, SRCImagePropTypes } from 'react-datocms';
 import ImageHelper from 'Helpers/Image';
 
 // Types
-type C = FC<SRCImagePropTypes & ImagePropTypes & HTMLAttributes<HTMLDivElement>>;
+type C = FC<
+	SRCImagePropTypes &
+		ImagePropTypes &
+		HTMLAttributes<HTMLDivElement> & {
+			spacing?: boolean;
+		}
+>;
 
 // Main component
-const Picture: C = ({ data, className, ...props }) => {
+const Picture: C = ({ data, className, spacing = true, ...props }) => {
 	return (
-		<figure className={classNames('section', className)} data-aos="photo" {...props}>
+		<figure
+			className={classNames(className, {
+				section: spacing,
+			})}
+			data-aos="photo"
+			{...props}
+		>
 			<ImageHelper data={data} />
 		</figure>
 	);

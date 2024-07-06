@@ -1,8 +1,9 @@
 .link {
 	@apply font-display
-	text-p-small
+	text-p
 	leading-tight
 	tracking-tight
 	underline
-	underline-offset-2;
+	underline-offset-2
+	lg:text-p-small;
 }

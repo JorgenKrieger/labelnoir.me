@@ -13,6 +13,7 @@ import type {
 } from '@/types/graphql';
 import Gallery from 'Content/Gallery';
 import Picture from 'Content/Picture';
+import ImageHelper from 'Helpers/Image';
 
 // Types
 type C = FC<{ section: SectionRecord }>;
@@ -44,7 +45,9 @@ const PageBuilder: C = ({ section }) => {
 								{galleryData.assets.map(img => (
 									<Fragment key={img.responsiveImage?.alt}>
 										{img?.responsiveImage && (
-											<Picture data={img.responsiveImage} />
+											<figure>
+												<ImageHelper data={img.responsiveImage} />
+											</figure>
 										)}
 									</Fragment>
 								))}

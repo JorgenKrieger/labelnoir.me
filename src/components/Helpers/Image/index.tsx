@@ -19,7 +19,12 @@ const ImageHelper: C = ({ ssr = true, data, className, ...props }) => {
 	return (
 		<>
 			{ssr ? (
-				<ServerImage data={data} pictureClassName={className} {...props} />
+				<ServerImage
+					data={data}
+					pictureClassName={className}
+					imgClassName={styles.img}
+					{...props}
+				/>
 			) : (
 				<ClientImage className={className} data={data} {...props} />
 			)}

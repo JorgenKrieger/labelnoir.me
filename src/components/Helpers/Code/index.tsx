@@ -19,13 +19,16 @@ type C = FC<
 >;
 
 // Main component
-const CodeHelper: C = ({ language, children }) => {
+const CodeHelper: C = ({ language, children, ...props }) => {
 	return (
 		<SyntaxHighlighter
 			language={language}
 			style={style}
 			showLineNumbers={true}
+			wrapLongLines={true}
+			wrapLines={true}
 			data-aos="fade-in"
+			{...props}
 		>
 			{children as string}
 		</SyntaxHighlighter>

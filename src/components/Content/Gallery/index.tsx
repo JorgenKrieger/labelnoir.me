@@ -24,7 +24,7 @@ type C = FC<
 
 // Main component
 const Gallery: C = ({ children, type }) => {
-	return <div className={classNames(type && styles[type])}>{children}</div>;
+	return <div className={classNames('section', type && styles[type])}>{children}</div>;
 };
 
 // Exports

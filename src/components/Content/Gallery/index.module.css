@@ -1,24 +1,45 @@
-.gallery {
+.mosaic {
 	@apply grid
 	grid-cols-3
-	gap-12;
+	gap-2
+	md:gap-8
+	lg:gap-12
+	hd:gap-24;
 
 	h2 {
 		@apply col-span-2;
 	}
 
-	picture {
+	p {
+		@apply col-span-full
+		text-p
+		lg:col-span-1
+		lg:justify-self-end;
+	}
+
+	figure {
 		@apply relative
-		self-stretch;
+		self-stretch
+		portrait:h-[20svh]
+		landscape:h-[45svh];
 
 		img {
 			@apply !size-full
+			!max-w-full
 			object-cover;
 		}
-	}
 
-	picture:nth-of-type(4n + 2),
-	picture:nth-of-type(4n + 3) {
-		@apply col-span-2;
+		&:nth-of-type(4n + 2),
+		&:nth-of-type(4n + 3) {
+			@apply col-span-2;
+		}
 	}
+}
+
+.stack {
+	@apply flex
+	w-full
+	flex-col
+	items-stretch
+	gap-y-8;
 }

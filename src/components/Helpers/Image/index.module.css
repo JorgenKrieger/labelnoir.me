@@ -3,3 +3,7 @@
 	font-light
 	text-noir-300;
 }
+
+.img {
+	@apply !max-w-full;
+}
